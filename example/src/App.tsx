@@ -1,14 +1,5 @@
 import { useState, useEffect } from 'react'
 
-/**
- * TODO:
- * compare with https://aurora.getleon.ai/components that all styles are OK
- * - issue with list padding
- * - issue with line-height in player widget
- * - issue with select box list (has bullet point)
- * ship version
- */
-
 import {
   Button,
   Card,
