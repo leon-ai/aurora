@@ -27,7 +27,12 @@
     "provenance": true
   },
   "files": [
-    "dist"
+    "dist",
+    "!/**/App.d.ts",
+    "!/**/*.svg",
+    "!/**/*.jpg",
+    "!/**/*.png",
+    "!/**/*.webp"
   ],
   "main": "./dist/aurora.cjs",
   "module": "./dist/aurora.js",
@@ -37,6 +42,11 @@
       "import": "./dist/aurora.js",
       "require": "./dist/aurora.cjs",
       "types": "./dist/src/index.d.ts"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css",
+      "types": "./dist/src/style.css.d.ts"
     }
   },
   "scripts": {
@@ -48,13 +58,13 @@
     "release": "semantic-release"
   },
   "peerDependencies": {
-    "react": ">=18.2.0",
-    "react-dom": ">=18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remixicon": "^3.4.0"
   },
   "dependencies": {
     "@ark-ui/react": "0.5.0",
-    "classnames": "2.3.2",
-    "remixicon": "3.4.0"
+    "clsx": "2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
@@ -70,12 +80,13 @@
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.4",
+    "prettier": "3.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "remixicon": "3.5.0",
     "sass": "1.69.5",
-    "typescript": "5.2.2",
-    "prettier": "3.1.0",
     "semantic-release": "22.0.8",
+    "typescript": "5.2.2",
     "vite": "5.0.2",
     "vite-plugin-dts": "3.6.3"
   }

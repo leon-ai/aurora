@@ -7,7 +7,7 @@ import {
   Portal,
   type SelectProps
 } from '@ark-ui/react'
-import classNames from 'classnames'
+import classNames from 'clsx'
 
 import { Flexbox, Icon } from '../../..'
 

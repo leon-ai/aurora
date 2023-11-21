@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import classNames from 'classnames'
+import classNames from 'clsx'
 
 import { Icon, Loader } from '../..'
 import { type Props as IconProps } from '../icon'

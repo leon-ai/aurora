@@ -31,7 +31,6 @@ import {
   TextInput,
   WidgetWrapper
 } from '.'
-import './styles/main.sass'
 
 interface SectionProps extends React.PropsWithChildren {
   title: string
@@ -96,7 +95,7 @@ function Timer({ value }: { value: number }) {
   )
 }
 
-export default function App() {
+export const App: React.FC = () => {
   const [isSending, setIsSending] = useState(false)
   const [isSendingIconButton, setIsSendingIconButton] = useState(false)
   const [isPlayButtonActivated, setIsPlayButtonActivated] = useState(false)

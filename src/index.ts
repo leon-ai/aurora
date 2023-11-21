@@ -1,5 +1,3 @@
-import 'remixicon/fonts/remixicon.css'
-
 export * from './components/button'
 export * from './components/card'
 export * from './components/checkbox'

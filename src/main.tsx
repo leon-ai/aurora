@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import App from './App.tsx'
+import 'remixicon/fonts/remixicon.css'
+import './styles/main.sass'
+import { App } from './App.tsx'
 
 const rootElement = document.getElementById('root')
 if (rootElement != null) {

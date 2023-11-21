@@ -1,5 +1,5 @@
 import type React from 'react'
-import classNames from 'classnames'
+import classNames from 'clsx'
 
 import { Text } from '../..'
 import { type Size } from '../../lib/types'
