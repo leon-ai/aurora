@@ -3,17 +3,11 @@ import {
   type SelectOptionProps
 } from '@ark-ui/react'
 
-interface Props extends Pick<SelectOptionProps,
-  'label' |
-  'value' |
-  'disabled'
-> {}
+interface Props extends Pick<SelectOptionProps, 'label' | 'value'> {
+  disabled?: boolean
+}
 
-export function SelectOption({
-  label,
-  value,
-  disabled
-}: Props) {
+export function SelectOption({ label, value, disabled = false }: Props) {
   return (
     <ArkSelectOption
       className="aurora-select-option"

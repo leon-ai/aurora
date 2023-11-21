@@ -1,15 +1,16 @@
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import react from '@vitejs/plugin-react'
+import path from 'node:path'
+
+import react from '@vitejs/plugin-react-swc'
 import dts from 'vite-plugin-dts'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), dts()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      formats: ['es', 'umd'],
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      formats: ['es', 'cjs'],
       name: 'Aurora',
       fileName: 'aurora'
     },

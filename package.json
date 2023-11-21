@@ -1,25 +1,15 @@
 {
   "name": "@leon-ai/aurora",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
+  "description": "The UI bricks that power up Leon.",
+  "public": true,
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/aurora.umd.cjs",
-  "module": "./dist/aurora.js",
-  "exports": {
-    ".": {
-      "import": "./dist/aurora.js",
-      "require": "./dist/aurora.umd.cjs"
-    }
-  },
   "author": {
     "name": "Louis Grenard",
     "email": "louis@getleon.ai",
     "url": "https://twitter.com/grenlouis"
   },
   "license": "MIT",
-  "homepage": "https://aurora.getleon.ai/components",
   "repository": {
     "type": "git",
     "url": "https://github.com/leon-ai/aurora.git"
@@ -27,10 +17,33 @@
   "bugs": {
     "url": "https://github.com/leon-ai/aurora/issues"
   },
+  "homepage": "https://aurora.getleon.ai/components",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/aurora.cjs",
+  "module": "./dist/aurora.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/aurora.js",
+      "require": "./dist/aurora.cjs",
+      "types": "./dist/src/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:eslint": "eslint . --max-warnings 0 --report-unused-disable-directives --ignore-path .gitignore",
+    "lint:prettier": "prettier . --check",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -41,17 +54,24 @@
     "remixicon": "3.4.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
-    "@vitejs/plugin-react": "^4.2.0",
-    "eslint": "^8.53.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vite-plugin-dts": "^3.6.3"
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
+    "@types/node": "20.9.3",
+    "@types/react": "18.2.38",
+    "@types/react-dom": "18.2.16",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "@vitejs/plugin-react-swc": "3.5.0",
+    "eslint": "8.54.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.4",
+    "sass": "1.69.5",
+    "typescript": "5.2.2",
+    "prettier": "3.1.0",
+    "semantic-release": "22.0.8",
+    "vite": "5.0.2",
+    "vite-plugin-dts": "3.6.3"
   }
 }
