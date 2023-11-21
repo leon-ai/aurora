@@ -45,7 +45,7 @@ export function Icon({
   }
 
   return (
-    <div
+    <span
       className={classNames('aurora-icon', {
         [`aurora-icon--${size}`]: size,
         [`aurora-icon--${bgShape}`]: bgShape,
@@ -63,6 +63,6 @@ export function Icon({
           })}
         />
       )}
-    </div>
+    </span>
   )
 }
