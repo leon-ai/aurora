@@ -12,20 +12,10 @@ interface Props {
   fontSize?: Size
 }
 
-export function Link({
-  href,
-  children,
-  fontSize
-}: Props) {
+export function Link({ href, children, fontSize }: Props) {
   return (
-    <a
-      className={classNames('aurora-link')}
-      href={href}
-      target="_blank"
-    >
-      <Text fontSize={fontSize}>
-        {children}
-      </Text>
+    <a className={classNames('aurora-link')} href={href} target="_blank">
+      <Text fontSize={fontSize}>{children}</Text>
     </a>
   )
 }

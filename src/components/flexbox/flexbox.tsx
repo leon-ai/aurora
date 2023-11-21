@@ -10,7 +10,14 @@ interface Props {
   fullWidth?: boolean
   display?: 'flex' | 'inline-flex'
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch'
-  justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly' | 'stretch'
+  justifyContent?:
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
+    | 'stretch'
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
   gap?: Size
   rowGap?: Size

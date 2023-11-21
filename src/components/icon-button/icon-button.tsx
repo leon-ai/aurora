@@ -70,13 +70,11 @@ export function IconButton({
         }
       }}
     >
-      {loading ? <Loader /> : (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
-          <Icon
-            type={iconType}
-            name={name}
-            size={size}
-          />
+          <Icon type={iconType} name={name} size={size} />
         </>
       )}
     </button>

@@ -14,10 +14,12 @@ export function Progress({
   size = 'md'
 }: Props) {
   return (
-    <div className={classNames('aurora-progress', {
-      [`aurora-progress--${orientation}`]: orientation,
-      [`aurora-progress--${size}`]: size
-    })}>
+    <div
+      className={classNames('aurora-progress', {
+        [`aurora-progress--${orientation}`]: orientation,
+        [`aurora-progress--${size}`]: size
+      })}
+    >
       <div
         className="aurora-progress-value"
         style={{

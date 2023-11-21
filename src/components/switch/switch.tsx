@@ -10,22 +10,12 @@ import {
 
 import './switch.sass'
 
-interface Props extends Pick<SwitchProps,
-  'value' |
-  'checked' |
-  'disabled' |
-  'onChange'
-> {
+interface Props
+  extends Pick<SwitchProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
   label?: string
 }
 
-export function Switch({
-  label,
-  checked,
-  value,
-  disabled,
-  onChange
-}: Props) {
+export function Switch({ label, checked, value, disabled, onChange }: Props) {
   const [isChecked, setIsChecked] = useState(checked)
 
   return (
@@ -47,9 +37,7 @@ export function Switch({
         <SwitchControl className="aurora-switch-control">
           <SwitchThumb className="aurora-switch-thumb" />
         </SwitchControl>
-        <SwitchLabel className="aurora-switch-label">
-          {label}
-        </SwitchLabel>
+        <SwitchLabel className="aurora-switch-label">{label}</SwitchLabel>
       </>
     </ArkSwitch>
   )

@@ -95,7 +95,9 @@ export function TextInput({
       )}
       {hint && (
         <div className="aurora-text-input-hint-container">
-          <Text fontSize="xs" tertiary>{hint}</Text>
+          <Text fontSize="xs" tertiary>
+            {hint}
+          </Text>
         </div>
       )}
     </div>

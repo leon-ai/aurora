@@ -11,16 +11,18 @@ import {
 
 import './slider.sass'
 
-interface Props extends Pick<SliderProps,
-  'value' |
-  'defaultValue' |
-  'max' |
-  'min' |
-  'step' |
-  'disabled' |
-  'orientation' |
-  'onChange'
-> {
+interface Props
+  extends Pick<
+    SliderProps,
+    | 'value'
+    | 'defaultValue'
+    | 'max'
+    | 'min'
+    | 'step'
+    | 'disabled'
+    | 'orientation'
+    | 'onChange'
+  > {
   width?: number | string
   height?: number | string
   hiddenThumb?: boolean
@@ -40,7 +42,8 @@ export function Slider({
   onChange
 }: Props) {
   const [newValue, setNewValue] = useState(value)
-  const valueInPercent = Number((((Number(newValue) - min) / (max - min))).toFixed(2)) * 100
+  const valueInPercent =
+    Number(((Number(newValue) - min) / (max - min)).toFixed(2)) * 100
 
   return (
     <div
@@ -72,7 +75,8 @@ export function Slider({
             <SliderRange
               className="aurora-slider-range"
               style={{
-                [orientation === 'horizontal' ? 'width' : 'height']: `${valueInPercent}%`
+                [orientation === 'horizontal' ? 'width' : 'height']:
+                  `${valueInPercent}%`
               }}
             />
           </SliderTrack>

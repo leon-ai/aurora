@@ -6,14 +6,6 @@ interface Props {
   children: React.ReactNode
 }
 
-export function List({
-  children
-}: Props) {
-  return (
-    <ul
-      className="aurora-list"
-    >
-      {children}
-    </ul>
-  )
+export function List({ children }: Props) {
+  return <ul className="aurora-list">{children}</ul>
 }

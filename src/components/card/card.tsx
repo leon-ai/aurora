@@ -8,10 +8,7 @@ interface Props {
   fullWidth?: boolean
 }
 
-export function Card({
-  children,
-  fullWidth
-}: Props) {
+export function Card({ children, fullWidth }: Props) {
   return (
     <div
       className={classNames('aurora-card', {

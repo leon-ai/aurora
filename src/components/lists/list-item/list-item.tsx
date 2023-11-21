@@ -9,11 +9,7 @@ interface Props {
   onClick?: () => void
 }
 
-export function ListItem({
-  children,
-  align,
-  onClick
-}: Props) {
+export function ListItem({ children, align, onClick }: Props) {
   let isClickable = false
 
   if (onClick) {

@@ -8,19 +8,14 @@ interface Props {
   align?: 'left' | 'center'
 }
 
-export function ListHeader({
-  children,
-  align
-}: Props) {
+export function ListHeader({ children, align }: Props) {
   return (
     <div
       className={classNames('aurora-list-header', {
         [`aurora-list-header--${align}`]: align
       })}
     >
-      <Text fontWeight="semi-bold">
-        {children}
-      </Text>
+      <Text fontWeight="semi-bold">{children}</Text>
     </div>
   )
 }

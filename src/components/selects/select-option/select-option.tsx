@@ -5,6 +5,8 @@ import {
 
 interface Props extends Pick<SelectOptionProps, 'label' | 'value'> {
   disabled?: boolean
+  label: string
+  value: string
 }
 
 export function SelectOption({ label, value, disabled = false }: Props) {
