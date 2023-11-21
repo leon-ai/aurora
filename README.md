@@ -30,9 +30,7 @@ import { WidgetWrapper, Button } from '@leon-ai/aurora'
 export const Example: React.FC = () => {
   return (
     <WidgetWrapper>
-      <Button iconName="send-plane">
-        Send
-      </Button>
+      <Button iconName="send-plane">Send</Button>
     </WidgetWrapper>
   )
 }
