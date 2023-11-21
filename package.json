@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/leon-ai/aurora.git"
+    "url": "git+https://github.com/leon-ai/aurora.git"
   },
   "bugs": {
     "url": "https://github.com/leon-ai/aurora/issues"
