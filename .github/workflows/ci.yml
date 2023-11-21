@@ -1,0 +1,24 @@
+name: 'CI'
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  ci:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v4.1.1'
+
+      - uses: 'actions/setup-node@v4.0.0'
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - run: 'npm clean-install'
+
+      - run: 'npm run lint:eslint'
+      - run: 'npm run lint:prettier'
+      - run: 'npm run build'
