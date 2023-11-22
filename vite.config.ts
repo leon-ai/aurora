@@ -8,9 +8,10 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react(), dts()],
   build: {
+    target: 'esnext',
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      formats: ['es', 'cjs'],
+      formats: ['es'],
       name: 'Aurora',
       fileName: 'aurora'
     },
