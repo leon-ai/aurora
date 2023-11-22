@@ -14,7 +14,7 @@ _<p align="center">The UI bricks that power up Leon.</p>_
 
 ```sh
 # Install Peer Dependencies
-npm install react@^18.2.0 react-dom@^18.2.0 remixicon@^3.4.0
+npm install react@^18.2.0 react-dom@^18.2.0 remixicon@^3.4.0 @fontsource/source-sans-pro@^5.0.8
 
 # Install Aurora
 npm install @leon-ai/aurora
@@ -23,7 +23,15 @@ npm install @leon-ai/aurora
 ## Usage
 
 ```tsx
+// Fonts & Icons
+import '@fontsource/source-sans-pro/200.css'
+import '@fontsource/source-sans-pro/300.css'
+import '@fontsource/source-sans-pro/400.css'
+import '@fontsource/source-sans-pro/600.css'
+import '@fontsource/source-sans-pro/700.css'
+import '@fontsource/source-sans-pro/900.css'
 import 'remixicon/fonts/remixicon.css'
+
 import '@leon-ai/aurora/style.css'
 import { WidgetWrapper, Button } from '@leon-ai/aurora'
 
