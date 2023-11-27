@@ -6,14 +6,14 @@ import {
   SliderRange,
   SliderThumb,
   SliderTrack,
-  type SliderProps
+  type SliderProps as ArkSliderProps
 } from '@ark-ui/react'
 
 import './slider.sass'
 
-interface Props
+export interface SliderProps
   extends Pick<
-    SliderProps,
+    ArkSliderProps,
     | 'value'
     | 'defaultValue'
     | 'max'
@@ -40,7 +40,7 @@ export function Slider({
   orientation = 'horizontal',
   hiddenThumb,
   onChange
-}: Props) {
+}: SliderProps) {
   const [newValue, setNewValue] = useState(value)
   const valueInPercent =
     Number(((Number(newValue) - min) / (max - min)).toFixed(2)) * 100

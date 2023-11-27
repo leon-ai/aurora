@@ -2,10 +2,10 @@ import type React from 'react'
 
 import './list.sass'
 
-interface Props {
+export interface ListProps {
   children: React.ReactNode
 }
 
-export function List({ children }: Props) {
+export function List({ children }: ListProps) {
   return <ul className="aurora-list">{children}</ul>
 }

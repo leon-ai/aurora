@@ -5,7 +5,7 @@ import { type Size } from '../../lib/types'
 
 import './flexbox.sass'
 
-interface Props {
+export interface FlexboxProps {
   children: React.ReactNode
   fullWidth?: boolean
   display?: 'flex' | 'inline-flex'
@@ -40,7 +40,7 @@ export function Flexbox({
   padding,
   paddingX,
   paddingY
-}: Props) {
+}: FlexboxProps) {
   return (
     <div
       className={classNames('aurora-flexbox', {

@@ -5,7 +5,7 @@ import {
   SelectPositioner,
   SelectTrigger,
   Portal,
-  type SelectProps
+  type SelectProps as ArkSelectProps
 } from '@ark-ui/react'
 import classNames from 'clsx'
 
@@ -18,9 +18,9 @@ interface Option {
   value: string
 }
 
-interface Props
+export interface SelectProps
   extends Pick<
-    SelectProps,
+    ArkSelectProps,
     'defaultValue' | 'selectedOption' | 'disabled' | 'onChange'
   > {
   selectedOption?: Option
@@ -35,7 +35,7 @@ export function Select({
   defaultValue,
   disabled,
   onChange
-}: Props) {
+}: SelectProps) {
   return (
     <ArkSelect
       closeOnSelect

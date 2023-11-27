@@ -3,14 +3,14 @@ import {
   RadioLabel,
   RadioInput,
   RadioControl,
-  type RadioProps
+  type RadioProps as ArkRadioProps
 } from '@ark-ui/react'
 
-interface Props extends Pick<RadioProps, 'value' | 'disabled'> {
+export interface RadioProps extends Pick<ArkRadioProps, 'value' | 'disabled'> {
   label: string
 }
 
-export function Radio({ label, value, disabled }: Props) {
+export function Radio({ label, value, disabled }: RadioProps) {
   return (
     <ArkRadio className="aurora-radio" value={value} disabled={disabled}>
       <RadioInput />

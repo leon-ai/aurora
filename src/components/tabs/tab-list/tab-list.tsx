@@ -1,12 +1,12 @@
 import {
   TabIndicator,
   TabList as ArkTabList,
-  type TabListProps
+  type TabListProps as ArkTabListProps
 } from '@ark-ui/react'
 
-interface Props extends Pick<TabListProps, 'children'> {}
+export interface TabListProps extends Pick<ArkTabListProps, 'children'> {}
 
-export function TabList({ children }: Props) {
+export function TabList({ children }: TabListProps) {
   return (
     <ArkTabList className="aurora-tab-list">
       {children}

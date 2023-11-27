@@ -5,17 +5,23 @@ import {
   SwitchInput,
   SwitchControl,
   SwitchThumb,
-  type SwitchProps
+  type SwitchProps as ArkSwitchProps
 } from '@ark-ui/react'
 
 import './switch.sass'
 
-interface Props
-  extends Pick<SwitchProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
+export interface SwitchProps
+  extends Pick<ArkSwitchProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
   label?: string
 }
 
-export function Switch({ label, checked, value, disabled, onChange }: Props) {
+export function Switch({
+  label,
+  checked,
+  value,
+  disabled,
+  onChange
+}: SwitchProps) {
   const [isChecked, setIsChecked] = useState(checked)
 
   return (

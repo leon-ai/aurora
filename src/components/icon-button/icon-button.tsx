@@ -2,11 +2,11 @@ import { useState } from 'react'
 import classNames from 'clsx'
 
 import { Icon, Loader } from '../..'
-import { type Props as IconProps } from '../icon'
+import { type IconProps } from '../icon'
 
 import './icon-button.sass'
 
-interface Props {
+export interface IconButtonProps {
   name: string
   type?: 'button' | 'submit' | 'reset'
   iconType?: IconProps['type']
@@ -34,7 +34,7 @@ export function IconButton({
   disabled,
   loading,
   onClick
-}: Props) {
+}: IconButtonProps) {
   const [isActivated, setIsActivated] = useState(activated || false)
 
   let variant = 'primary'

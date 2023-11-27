@@ -13,7 +13,7 @@ import './text.sass'
   XL: 'xl'
 } as const*/
 
-interface Props {
+export interface TextProps {
   children: React.ReactNode
   // fontSize?: typeof FONT_SIZES[keyof typeof FONT_SIZES]
   fontSize?: Size
@@ -30,7 +30,7 @@ export function Text({
   secondary,
   tertiary,
   textAlign
-}: Props) {
+}: TextProps) {
   return (
     <p
       className={classNames('aurora-text', {

@@ -6,7 +6,7 @@ import { Icon, Flexbox } from '../..'
 
 import './status.sass'
 
-interface Props {
+export interface StatusProps {
   children: React.ReactNode
   color?: 'blue' | 'green' | 'red' | 'yellow'
   iconName?: string
@@ -18,7 +18,7 @@ export function Status({
   color,
   iconName,
   iconType = 'line'
-}: Props) {
+}: StatusProps) {
   return (
     <div
       className={classNames('aurora-status', {

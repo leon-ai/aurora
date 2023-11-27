@@ -2,7 +2,7 @@ import classNames from 'clsx'
 
 import './image.sass'
 
-interface Props {
+export interface ImageProps {
   src: string
   width?: number | string
   height?: number | string
@@ -28,7 +28,7 @@ export function Image({
   overlay,
   gradient,
   gradientPosition
-}: Props) {
+}: ImageProps) {
   return (
     <div
       className={classNames('aurora-image', {

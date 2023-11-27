@@ -3,7 +3,7 @@ import classNames from 'clsx'
 
 import './widget-wrapper.sass'
 
-interface Props {
+export interface WidgetWrapperProps {
   children: React.ReactNode
   noPadding?: boolean
   paddingTop?: boolean
@@ -19,7 +19,7 @@ export function WidgetWrapper({
   paddingBottom,
   paddingLeft,
   paddingRight
-}: Props) {
+}: WidgetWrapperProps) {
   return (
     <div
       className={classNames('aurora-widget-wrapper', {

@@ -4,19 +4,28 @@ import {
   CheckboxLabel,
   CheckboxInput,
   CheckboxControl,
-  type CheckboxProps
+  type CheckboxProps as ArkCheckboxProps
 } from '@ark-ui/react'
 
 import { Icon } from '../icon'
 
 import './checkbox.sass'
 
-interface Props
-  extends Pick<CheckboxProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
+export interface CheckboxProps
+  extends Pick<
+    ArkCheckboxProps,
+    'value' | 'checked' | 'disabled' | 'onChange'
+  > {
   label?: string
 }
 
-export function Checkbox({ label, checked, value, disabled, onChange }: Props) {
+export function Checkbox({
+  label,
+  checked,
+  value,
+  disabled,
+  onChange
+}: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(checked)
 
   return (

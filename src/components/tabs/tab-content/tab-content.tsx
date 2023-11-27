@@ -1,11 +1,12 @@
 import {
   TabContent as ArkTabContent,
-  type TabContentProps
+  type TabContentProps as ArkTabContentProps
 } from '@ark-ui/react'
 
-interface Props extends Pick<TabContentProps, 'children' | 'value'> {}
+export interface TabContentProps
+  extends Pick<ArkTabContentProps, 'children' | 'value'> {}
 
-export function TabContent({ children, value }: Props) {
+export function TabContent({ children, value }: TabContentProps) {
   return (
     <ArkTabContent className="aurora-tab-content" value={value}>
       {children}

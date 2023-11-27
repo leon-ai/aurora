@@ -5,7 +5,7 @@ import { Flexbox, Icon, Loader } from '../..'
 
 import './button.sass'
 
-interface Props {
+export interface ButtonProps {
   children?: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
   iconName?: string
@@ -29,7 +29,7 @@ export function Button({
   disabled,
   loading,
   onClick
-}: Props) {
+}: ButtonProps) {
   let variant = 'primary'
 
   if (secondary) {

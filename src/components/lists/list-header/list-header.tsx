@@ -3,12 +3,12 @@ import classNames from 'clsx'
 
 import { Text } from '../../..'
 
-interface Props {
+export interface ListHeaderProps {
   children: React.ReactNode
   align?: 'left' | 'center'
 }
 
-export function ListHeader({ children, align }: Props) {
+export function ListHeader({ children, align }: ListHeaderProps) {
   return (
     <div
       className={classNames('aurora-list-header', {

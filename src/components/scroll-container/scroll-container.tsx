@@ -3,7 +3,7 @@ import classNames from 'clsx'
 
 import './scroll-container.sass'
 
-interface Props {
+export interface ScrollContainerProps {
   children: React.ReactNode
   orientation?: 'vertical' | 'horizontal'
   width?: number | string
@@ -15,7 +15,7 @@ export function ScrollContainer({
   orientation = 'horizontal',
   width,
   height
-}: Props) {
+}: ScrollContainerProps) {
   return (
     <div
       className={classNames(

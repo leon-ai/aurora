@@ -5,7 +5,7 @@ import type { Color, Size, IconType } from '../../lib/types'
 
 import './icon.sass'
 
-export interface Props {
+export interface IconProps {
   name?: string
   svg?: React.ReactNode
   type?: IconType
@@ -37,7 +37,7 @@ export function Icon({
   bgShape,
   bgColor,
   animated
-}: Props) {
+}: IconProps) {
   let iconClassName = `ri-${name}`
 
   if (type) {

@@ -5,7 +5,7 @@ import { Text, Icon } from '../..'
 
 import './text-input.sass'
 
-interface Props {
+export interface TextInputProps {
   placeholder: string
   value?: string
   type?: 'text' | 'password' | 'email' | 'tel' | 'url'
@@ -31,7 +31,7 @@ export function TextInput({
   multiline,
   autofocus,
   onChange
-}: Props) {
+}: TextInputProps) {
   const [inputValue, setInputValue] = useState(value || '')
 
   if (!multiline) {

@@ -1,13 +1,13 @@
 import {
   RadioGroup as ArkRadioGroup,
-  type RadioGroupProps
+  type RadioGroupProps as ArkRadioGroupProps
 } from '@ark-ui/react'
 
 import './radio-group.sass'
 
-interface Props
+export interface RadioGroupProps
   extends Pick<
-    RadioGroupProps,
+    ArkRadioGroupProps,
     'children' | 'defaultValue' | 'disabled' | 'onChange'
   > {}
 
@@ -16,7 +16,7 @@ export function RadioGroup({
   defaultValue,
   disabled,
   onChange
-}: Props) {
+}: RadioGroupProps) {
   return (
     <ArkRadioGroup
       className="aurora-radio-group"

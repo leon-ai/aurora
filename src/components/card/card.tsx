@@ -3,12 +3,12 @@ import classNames from 'clsx'
 
 import './card.sass'
 
-interface Props {
+export interface CardProps {
   children: React.ReactNode
   fullWidth?: boolean
 }
 
-export function Card({ children, fullWidth }: Props) {
+export function Card({ children, fullWidth }: CardProps) {
   return (
     <div
       className={classNames('aurora-card', {

@@ -2,7 +2,7 @@ import classNames from 'clsx'
 
 import './progress.sass'
 
-interface Props {
+export interface ProgressProps {
   value: number
   orientation?: 'horizontal' | 'vertical'
   size?: 'sm' | 'md' | 'lg'
@@ -12,7 +12,7 @@ export function Progress({
   value,
   orientation = 'horizontal',
   size = 'md'
-}: Props) {
+}: ProgressProps) {
   return (
     <div
       className={classNames('aurora-progress', {

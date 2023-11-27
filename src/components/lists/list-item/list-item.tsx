@@ -3,13 +3,13 @@ import classNames from 'clsx'
 
 import { Icon } from '../../..'
 
-interface Props {
+export interface ListItemProps {
   children: React.ReactNode
   align?: 'left' | 'center'
   onClick?: () => void
 }
 
-export function ListItem({ children, align, onClick }: Props) {
+export function ListItem({ children, align, onClick }: ListItemProps) {
   let isClickable = false
 
   if (onClick) {

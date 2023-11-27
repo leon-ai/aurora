@@ -3,13 +3,17 @@ import classNames from 'clsx'
 
 import './circular-progress.sass'
 
-interface Props {
+export interface CircularProgressProps {
   value: number
   children?: React.ReactNode
   size?: 'sm' | 'md' | 'lg'
 }
 
-export function CircularProgress({ value, children, size = 'md' }: Props) {
+export function CircularProgress({
+  value,
+  children,
+  size = 'md'
+}: CircularProgressProps) {
   const total = 100
 
   return (
