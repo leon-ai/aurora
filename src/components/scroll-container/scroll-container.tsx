@@ -1,10 +1,10 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import './scroll-container.sass'
 
 export interface ScrollContainerProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
   orientation?: 'vertical' | 'horizontal'
   width?: number | string
   height?: number | string

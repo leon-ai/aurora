@@ -1,4 +1,3 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import { Text } from '../..'
@@ -8,7 +7,9 @@ import './link.sass'
 
 export interface LinkProps {
   href: string
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
+  // children: React.ReactNode
   fontSize?: Size
 }
 

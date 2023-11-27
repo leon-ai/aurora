@@ -1,4 +1,3 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import type { IconType } from '../../lib/types'
@@ -7,7 +6,8 @@ import { Icon, Flexbox } from '../..'
 import './status.sass'
 
 export interface StatusProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
   color?: 'blue' | 'green' | 'red' | 'yellow'
   iconName?: string
   iconType?: IconType

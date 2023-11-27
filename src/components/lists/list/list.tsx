@@ -1,9 +1,9 @@
-import type React from 'react'
-
 import './list.sass'
 
 export interface ListProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
+  // children: React.ReactNode
 }
 
 export function List({ children }: ListProps) {

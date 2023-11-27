@@ -1,4 +1,3 @@
-import type React from 'react'
 import {
   Select as ArkSelect,
   SelectContent,
@@ -25,7 +24,8 @@ export interface SelectProps
   > {
   selectedOption?: Option
   placeholder: string
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
 }
 
 export function Select({

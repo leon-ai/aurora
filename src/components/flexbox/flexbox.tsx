@@ -1,4 +1,3 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import { type Size } from '../../lib/types'
@@ -6,7 +5,9 @@ import { type Size } from '../../lib/types'
 import './flexbox.sass'
 
 export interface FlexboxProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
+  // children: React.ReactNode
   fullWidth?: boolean
   display?: 'flex' | 'inline-flex'
   alignItems?: 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'stretch'

@@ -1,4 +1,3 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import { Flexbox, Icon, Loader } from '../..'
@@ -6,7 +5,9 @@ import { Flexbox, Icon, Loader } from '../..'
 import './button.sass'
 
 export interface ButtonProps {
-  children?: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children?: any
+  // children?: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
   iconName?: string
   iconPosition?: 'left' | 'right'

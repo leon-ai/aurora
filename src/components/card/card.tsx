@@ -1,10 +1,11 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import './card.sass'
 
 export interface CardProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
+  // children: React.ReactNode
   fullWidth?: boolean
 }
 

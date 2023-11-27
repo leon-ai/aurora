@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'clsx'
 
 import type { Color, Size, IconType } from '../../lib/types'
@@ -7,7 +6,9 @@ import './icon.sass'
 
 export interface IconProps {
   name?: string
-  svg?: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  svg?: any
+  // svg?: React.ReactNode
   type?: IconType
   color?: Color
   size?: Size | 'xxl'

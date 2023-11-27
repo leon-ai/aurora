@@ -1,11 +1,12 @@
-import React from 'react'
 import classNames from 'clsx'
 
 import './circular-progress.sass'
 
 export interface CircularProgressProps {
   value: number
-  children?: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children?: any
+  // children?: React.ReactNode
   size?: 'sm' | 'md' | 'lg'
 }
 

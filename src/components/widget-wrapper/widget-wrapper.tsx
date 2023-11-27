@@ -1,10 +1,10 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import './widget-wrapper.sass'
 
 export interface WidgetWrapperProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
   noPadding?: boolean
   paddingTop?: boolean
   paddingBottom?: boolean

@@ -1,4 +1,3 @@
-import type React from 'react'
 import classNames from 'clsx'
 
 import type { Size } from '../../lib/types'
@@ -14,7 +13,8 @@ import './text.sass'
 } as const*/
 
 export interface TextProps {
-  children: React.ReactNode
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  children: any
   // fontSize?: typeof FONT_SIZES[keyof typeof FONT_SIZES]
   fontSize?: Size
   fontWeight?: 'regular' | 'semi-bold'
