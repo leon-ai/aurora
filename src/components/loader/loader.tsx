@@ -4,6 +4,8 @@ import './loader.sass'
 // size?: 'sm' | 'md'
 // }
 
+export interface LoaderProps {}
+
 export function Loader() {
   return (
     <span className="aurora-loader" />
