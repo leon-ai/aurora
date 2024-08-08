@@ -12,10 +12,12 @@ import './switch.sass'
 
 export interface SwitchProps
   extends Pick<ArkSwitchProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
+  name: string
   label?: string
 }
 
 export function Switch({
+  name,
   label,
   checked,
   value,
@@ -27,6 +29,7 @@ export function Switch({
   return (
     <ArkSwitch
       className="aurora-switch"
+      name={name}
       value={value}
       checked={isChecked}
       disabled={disabled}

@@ -987,9 +987,18 @@ export const App: React.FC = () => {
       <Section title="Switch">
         <WidgetWrapper>
           <Flexbox gap="md">
-            <Switch checked={false} label="Living room light" />
-            <Switch checked={true} label="Kitchen light" />
-            <Switch checked={true} disabled label="Entrance light" />
+            <Switch
+              checked={false}
+              name="living-room"
+              label="Living room light"
+            />
+            <Switch checked={true} name="kitchen" label="Kitchen light" />
+            <Switch
+              checked={true}
+              disabled
+              name="entrance"
+              label="Entrance light"
+            />
           </Flexbox>
         </WidgetWrapper>
       </Section>
