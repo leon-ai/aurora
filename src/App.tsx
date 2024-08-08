@@ -833,10 +833,10 @@ export const App: React.FC = () => {
         <WidgetWrapper>
           <RadioGroup defaultValue="orange">
             <Flexbox gap="md">
-              <Radio label="Strawberry" value="strawberry" />
-              <Radio label="Apple" value="apple" />
-              <Radio label="Lemon" value="lemon" />
-              <Radio label="Orange" value="orange" disabled />
+              <Radio label="Strawberry" name="fruit" value="strawberry" />
+              <Radio label="Apple" name="fruit" value="apple" />
+              <Radio label="Lemon" name="fruit" value="lemon" />
+              <Radio label="Orange" name="fruit" value="orange" disabled />
             </Flexbox>
           </RadioGroup>
         </WidgetWrapper>
