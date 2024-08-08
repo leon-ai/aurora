@@ -912,6 +912,7 @@ export const App: React.FC = () => {
           <WidgetWrapper>
             <Flexbox gap="lg">
               <Slider
+                name="slider-1"
                 min={0}
                 max={100}
                 step={1}
@@ -921,6 +922,7 @@ export const App: React.FC = () => {
               />
               <Slider
                 hiddenThumb
+                name="slider-2"
                 min={0}
                 max={100}
                 step={1}
@@ -929,6 +931,7 @@ export const App: React.FC = () => {
               />
               <Slider
                 disabled
+                name="slider-3"
                 min={0}
                 max={100}
                 step={1}
@@ -940,6 +943,7 @@ export const App: React.FC = () => {
           <WidgetWrapper>
             <Flexbox flexDirection="row" gap="lg">
               <Slider
+                name="slider-4"
                 height={164}
                 min={0}
                 max={100}
@@ -951,6 +955,7 @@ export const App: React.FC = () => {
               />
               <Slider
                 disabled
+                name="slider-5"
                 height={164}
                 min={0}
                 max={100}
@@ -1630,7 +1635,12 @@ export const App: React.FC = () => {
                 <Text secondary>Eminem</Text>
               </Flexbox>
               <Flexbox fullWidth paddingX gap="sm">
-                <Slider width="100%" defaultValue={33} hiddenThumb />
+                <Slider
+                  width="100%"
+                  defaultValue={33}
+                  name="duration"
+                  hiddenThumb
+                />
                 <Flexbox flexDirection="row" justifyContent="space-between">
                   <Text fontSize="xs" secondary>
                     1:44

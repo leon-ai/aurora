@@ -23,12 +23,14 @@ export interface SliderProps
     | 'orientation'
     | 'onChange'
   > {
+  name: string
   width?: number | string
   height?: number | string
   hiddenThumb?: boolean
 }
 
 export function Slider({
+  name,
   width,
   height,
   value,
@@ -57,6 +59,7 @@ export function Slider({
         className={classNames('aurora-slider', {
           'aurora-slider--hidden-thumb': hiddenThumb
         })}
+        name={name}
         value={newValue}
         defaultValue={defaultValue}
         max={max}
