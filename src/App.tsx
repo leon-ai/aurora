@@ -184,18 +184,21 @@ export const App: React.FC = () => {
         <WidgetWrapper>
           <Flexbox gap="md">
             <Checkbox
+              name="checkbox-1"
               label="This is a checkbox"
               checked={false}
               value="test"
               onChange={(e) => console.log('Checkbox state:', e)}
             />
             <Checkbox
+              name="checkbox-2"
               label="This is a checked checkbox"
               checked={true}
               value="test"
               onChange={(e) => console.log('Checkbox state:', e)}
             />
             <Checkbox
+              name="checkbox-3"
               label="Disabled checkbox"
               checked={true}
               value="test2"
@@ -545,6 +548,7 @@ export const App: React.FC = () => {
               <ListHeader>Shopping List</ListHeader>
               <ListItem>
                 <Checkbox
+                  name="item1"
                   label="Potatoes"
                   value="item1"
                   checked={false}
@@ -553,6 +557,7 @@ export const App: React.FC = () => {
               </ListItem>
               <ListItem>
                 <Checkbox
+                  name="item2"
                   value="item2"
                   checked={false}
                   label="2 bottles of milk"
@@ -560,6 +565,7 @@ export const App: React.FC = () => {
               </ListItem>
               <ListItem>
                 <Checkbox
+                  name="item3"
                   value="item3"
                   checked={false}
                   label="One bottle of orange juice but not the same as the last time"
@@ -567,16 +573,27 @@ export const App: React.FC = () => {
               </ListItem>
               <ListItem>
                 <Checkbox
+                  name="item4"
                   value="item4"
                   checked={false}
                   label="2 bottles of milk"
                 />
               </ListItem>
               <ListItem>
-                <Checkbox value="item5" checked={true} label="1kg of rice" />
+                <Checkbox
+                  name="item5"
+                  value="item5"
+                  checked={true}
+                  label="1kg of rice"
+                />
               </ListItem>
               <ListItem>
-                <Checkbox value="item5" checked={true} label="Shampoo" />
+                <Checkbox
+                  name="item5"
+                  value="item5"
+                  checked={true}
+                  label="Shampoo"
+                />
               </ListItem>
             </List>
           </WidgetWrapper>

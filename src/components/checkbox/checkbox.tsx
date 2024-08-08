@@ -16,10 +16,12 @@ export interface CheckboxProps
     ArkCheckboxProps,
     'value' | 'checked' | 'disabled' | 'onChange'
   > {
+  name: string
   label?: string
 }
 
 export function Checkbox({
+  name,
   label,
   checked,
   value,
@@ -31,6 +33,7 @@ export function Checkbox({
   return (
     <ArkCheckbox
       className="aurora-checkbox"
+      name={name}
       value={value}
       checked={isChecked}
       disabled={disabled}
