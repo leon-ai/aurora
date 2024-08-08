@@ -6,6 +6,7 @@ import { Text, Icon } from '../..'
 import './text-input.sass'
 
 export interface TextInputProps {
+  name: string
   placeholder: string
   value?: string
   type?: 'text' | 'password' | 'email' | 'tel' | 'url'
@@ -20,6 +21,7 @@ export interface TextInputProps {
 }
 
 export function TextInput({
+  name,
   placeholder,
   type = 'text',
   iconName,
@@ -48,6 +50,7 @@ export function TextInput({
     <div className="aurora-text-input-container">
       {multiline ? (
         <textarea
+          name={name}
           placeholder={placeholder}
           value={inputValue}
           disabled={disabled}
@@ -70,6 +73,7 @@ export function TextInput({
       ) : (
         <input
           type={type}
+          name={name}
           placeholder={placeholder}
           value={inputValue}
           disabled={disabled}

@@ -149,8 +149,8 @@ export const App: React.FC = () => {
           </WidgetWrapper>
           <WidgetWrapper>
             <Flexbox gap="md">
-              <TextInput placeholder="Input 1" />
-              <TextInput placeholder="Input 2" />
+              <TextInput name="input-1" placeholder="Input 1" />
+              <TextInput name="input-2" placeholder="Input 2" />
               <Flexbox gap="md">
                 <Button type="submit">Submit</Button>
                 <Button type="reset" secondary>
@@ -1011,19 +1011,26 @@ export const App: React.FC = () => {
       <Section title="Text Input">
         <WidgetWrapper>
           <Flexbox gap="md" display="inline-flex" fullWidth>
-            <TextInput type="password" placeholder="Your password" />
             <TextInput
+              name="password"
+              type="password"
+              placeholder="Your password"
+            />
+            <TextInput
+              name="spotify-api-key"
               placeholder="Your Spotify API key"
               iconName="key-2"
               onChange={(value) => console.log('Text input value:', value)}
             />
             <TextInput
+              name="email"
               type="email"
               placeholder="Your email address"
               iconName="mail"
               hint="Leon will notify you there once the task is over."
             />
             <TextInput
+              name="email"
               type="email"
               placeholder="Your email address (disabled)"
               iconName="mail"
@@ -1031,27 +1038,32 @@ export const App: React.FC = () => {
               disabled
             />
             <TextInput
+              name="test"
               placeholder="Test"
               value="This is a test (disabled)"
               disabled
             />
-            <TextInput placeholder="Multiline" multiline />
+            <TextInput name="multiline" placeholder="Multiline" multiline />
             <TextInput
+              name="comment"
               placeholder="Your comment here..."
               multiline
               iconName="edit-2"
             />
             <TextInput
+              name="email-content"
               placeholder="Your email content here..."
               multiline
               iconName="mail"
             />
             <TextInput
+              name="content"
               placeholder="Content here... (custom height)"
               multiline
               height={200}
             />
             <TextInput
+              name="multiline"
               placeholder="Multiline (disabled)"
               value="Multiline (disabled)"
               multiline
