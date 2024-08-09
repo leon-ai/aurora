@@ -22,6 +22,7 @@ export interface SelectProps
     ArkSelectProps,
     'defaultValue' | 'selectedOption' | 'disabled' | 'onChange'
   > {
+  name: string
   selectedOption?: Option
   placeholder: string
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -29,6 +30,7 @@ export interface SelectProps
 }
 
 export function Select({
+  name,
   placeholder,
   children,
   selectedOption,
@@ -46,6 +48,12 @@ export function Select({
     >
       {({ selectedOption }) => (
         <>
+          <input
+            type="hidden"
+            name={name}
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            value={selectedOption?.value as string}
+          />
           <SelectTrigger
             className={classNames('aurora-select-trigger', {
               'aurora-select-trigger--selected': selectedOption as boolean
