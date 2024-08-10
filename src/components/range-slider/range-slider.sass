@@ -1,9 +1,9 @@
 @import '../../styles/main.sass'
 
-.aurora-slider
+.aurora-range-slider
   --a-track-height: 10px
 
-  .aurora-slider-control
+  .aurora-range-slider-control
     display: flex
     align-items: center
     cursor: pointer
@@ -12,22 +12,22 @@
       cursor: not-allowed
       opacity: var(--a-opacity-disabled)
     &:hover:not([data-disabled])
-      .aurora-slider-thumb
+      .aurora-range-slider-thumb
         width: calc(var(--a-track-height) * 2.3)
         height: calc(var(--a-track-height) * 2.3)
-      .aurora-slider-track
+      .aurora-range-slider-track
         background-color: var(--a-color-background-surface-secondary-hover)
 
-  .aurora-slider-track
+  .aurora-range-slider-track
     background-color: var(--a-color-background-surface-secondary)
     border-radius: var(--a-border-radius-pill)
     transition: background-color var(--a-transition-duration-main) var(--a-transition-timing-main)
 
-  .aurora-slider-range
+  .aurora-range-slider-range
     background-color: var(--a-color-accent)
     border-radius: var(--a-border-radius-pill)
 
-  .aurora-slider-thumb
+  .aurora-range-slider-thumb
     position: relative
     outline: none
     width: calc(var(--a-track-height) * 2)
@@ -37,34 +37,34 @@
     transition: width var(--a-transition-duration-main) var(--a-transition-timing-main), height var(--a-transition-duration-main) var(--a-transition-timing-main)
 
   &--hidden-thumb
-    &:hover .aurora-slider-thumb
+    &:hover .aurora-range-slider-thumb
       opacity: 1
-    .aurora-slider-thumb
+    .aurora-range-slider-thumb
       opacity: 0
 
   &[data-orientation="horizontal"]
-    .aurora-slider-control
+    .aurora-range-slider-control
       flex-direction: row
       width: 100%
       height: var(--a-track-height)
-    .aurora-slider-range
+    .aurora-range-slider-range
       height: var(--a-track-height)
-    .aurora-slider-track
+    .aurora-range-slider-track
       width: 100%
       height: var(--a-track-height)
-    .aurora-slider-thumb
+    .aurora-range-slider-thumb
       margin-top: 1px
 
   &[data-orientation="vertical"]
     height: 100%
-    .aurora-slider-control
+    .aurora-range-slider-control
       flex-direction: column
       width: var(--a-track-height)
       height: 100%
-    .aurora-slider-range
+    .aurora-range-slider-range
       width: var(--a-track-height)
-    .aurora-slider-track
+    .aurora-range-slider-track
       width: var(--a-track-height)
       height: 100%
-    .aurora-slider-thumb
+    .aurora-range-slider-thumb
       margin-left: 1px

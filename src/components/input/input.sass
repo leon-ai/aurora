@@ -1,13 +1,13 @@
 @import '../../styles/main.sass'
 
-.aurora-text-input-container
+.aurora-input-container
   --a-icon-container-width: calc(var(--a-input-size-md) + var(--a-space-sm))
 
   position: relative
   display: flex
   flex-direction: column
 
-.aurora-text-input
+.aurora-input
   position: relative
   display: inline-block
   color: var(--a-color-text)
@@ -20,20 +20,24 @@
   width: 100%
   outline: none
   transition: background-color var(--a-transition-duration-main) var(--a-transition-timing-main), border-color var(--a-transition-duration-main) var(--a-transition-timing-main)
+  &::-webkit-calendar-picker-indicator
+    cursor: pointer
+    background-color: var(--a-color-grey-blue-dark)
+    border-radius: var(--a-border-radius-xs)
   &:hover
     border-color: var(--a-color-input-border-hover)
     background-color: var(--a-color-input-background-hover)
-  &:hover:not([disabled]) ~ .aurora-text-input-icon-container
+  &:hover:not([disabled]) ~ .aurora-input-icon-container
     border-color: var(--a-color-input-border-hover)
   &:focus
     border-color: var(--a-color-input-border-focus)
     background-color: var(--a-color-input-background-hover)
     &:focus:not([disabled])
-      &~ .aurora-text-input-icon-container
+      &~ .aurora-input-icon-container
         border-color: var(--a-color-input-border-focus)
         i
           color: var(--a-color-accent)
-  &:placeholder-shown ~ .aurora-text-input-icon-container i
+  &:placeholder-shown ~ .aurora-input-icon-container i
     color: var(--color-secondary-white)
 
   &--multiline
@@ -42,7 +46,7 @@
     resize: vertical
     min-height: calc(var(--a-input-size-md) * 2)
     max-height: 512px
-    &~ .aurora-text-input-icon-container
+    &~ .aurora-input-icon-container
       height: 100%
 
   &--disabled, &--disabled:hover
@@ -51,7 +55,7 @@
     background-color: var(--a-color-input-background)
     border-color: var(--a-color-input-border)
     cursor: not-allowed
-  &--disabled ~ .aurora-text-input-icon-container
+  &--disabled ~ .aurora-input-icon-container
     opacity: var(--a-opacity-disabled)
     i
       color: inherit
@@ -60,7 +64,7 @@
   &--with-icon
     padding-left: calc(var(--a-icon-container-width) + var(--a-space-md))
 
-.aurora-text-input-icon-container
+.aurora-input-icon-container
   position: absolute
   left: 0
   top: 0
@@ -78,6 +82,6 @@
     color: var(--a-color-text)
     transition: color var(--a-transition-duration-main) var(--a-transition-timing-main)
 
-.aurora-text-input-hint-container
+.aurora-input-hint-container
   padding-left: var(--a-space-md)
   margin-top: var(--a-space-xs)

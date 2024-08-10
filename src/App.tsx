@@ -10,6 +10,7 @@ import {
   Icon,
   IconButton,
   Image,
+  Input,
   Link,
   List,
   ListHeader,
@@ -18,10 +19,10 @@ import {
   Progress,
   Radio,
   RadioGroup,
+  RangeSlider,
   ScrollContainer,
   Select,
   SelectOption,
-  Slider,
   Status,
   Switch,
   Tab,
@@ -29,7 +30,6 @@ import {
   TabGroup,
   TabList,
   Text,
-  TextInput,
   WidgetWrapper
 } from '.'
 
@@ -150,8 +150,8 @@ export const App: React.FC = () => {
           </WidgetWrapper>
           <WidgetWrapper>
             <Flexbox gap="md">
-              <TextInput name="input-1" placeholder="Input 1" />
-              <TextInput name="input-2" placeholder="Input 2" />
+              <Input name="input-1" placeholder="Input 1" />
+              <Input name="input-2" placeholder="Input 2" />
               <Flexbox gap="md">
                 <Button type="submit">Submit</Button>
                 <Button type="reset" secondary>
@@ -283,13 +283,28 @@ export const App: React.FC = () => {
               alert(JSON.stringify(data))
             }}
           >
-            <Flexbox gap="xl">
-              <TextInput name="username" placeholder="Enter your username..." />
-              <TextInput
+            <Flexbox gap="md">
+              <Input name="username" placeholder="Enter your username..." />
+              <Input type="date" name="date" placeholder="Date..." />
+              <Input
+                type="datetime-local"
+                name="datetime-local"
+                placeholder="Local datetime..."
+              />
+              <Input type="time" name="time" placeholder="Time..." />
+              <Input
+                type="email"
+                name="email"
+                placeholder="Enter your email..."
+              />
+              <Input
                 name="password"
                 placeholder="Enter your password..."
                 type="password"
               />
+              <Input name="content" placeholder="Your content..." multiline />
+              <Text>Length</Text>
+              <RangeSlider name="length" min={0} max={100} step={10} />
               <Switch name="notification" label="Enable notifications" />
               <RadioGroup defaultValue="lemon">
                 <Flexbox gap="md">
@@ -886,6 +901,68 @@ export const App: React.FC = () => {
           </RadioGroup>
         </WidgetWrapper>
       </Section>
+      <Section title="Range Slider">
+        <Flexbox gap="md">
+          <WidgetWrapper>
+            <Flexbox gap="lg">
+              <RangeSlider
+                name="slider-1"
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={50}
+                value={50}
+                onChange={({ value }) => console.log('value', value)}
+              />
+              <RangeSlider
+                hiddenThumb
+                name="slider-2"
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={72}
+                value={72}
+              />
+              <RangeSlider
+                disabled
+                name="slider-3"
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={72}
+                value={72}
+              />
+            </Flexbox>
+          </WidgetWrapper>
+          <WidgetWrapper>
+            <Flexbox flexDirection="row" gap="lg">
+              <RangeSlider
+                name="slider-4"
+                height={164}
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={50}
+                value={50}
+                orientation="vertical"
+                onChange={({ value }) => console.log('value', value)}
+              />
+              <RangeSlider
+                disabled
+                name="slider-5"
+                height={164}
+                min={0}
+                max={100}
+                step={1}
+                defaultValue={72}
+                value={72}
+                orientation="vertical"
+                onChange={({ value }) => console.log('value', value)}
+              />
+            </Flexbox>
+          </WidgetWrapper>
+        </Flexbox>
+      </Section>
       <Section title="Scroll Container">
         <Flexbox gap="md">
           <WidgetWrapper>
@@ -957,68 +1034,6 @@ export const App: React.FC = () => {
             </Select>
           </Flexbox>
         </WidgetWrapper>
-      </Section>
-      <Section title="Slider">
-        <Flexbox gap="md">
-          <WidgetWrapper>
-            <Flexbox gap="lg">
-              <Slider
-                name="slider-1"
-                min={0}
-                max={100}
-                step={1}
-                defaultValue={50}
-                value={50}
-                onChange={({ value }) => console.log('value', value)}
-              />
-              <Slider
-                hiddenThumb
-                name="slider-2"
-                min={0}
-                max={100}
-                step={1}
-                defaultValue={72}
-                value={72}
-              />
-              <Slider
-                disabled
-                name="slider-3"
-                min={0}
-                max={100}
-                step={1}
-                defaultValue={72}
-                value={72}
-              />
-            </Flexbox>
-          </WidgetWrapper>
-          <WidgetWrapper>
-            <Flexbox flexDirection="row" gap="lg">
-              <Slider
-                name="slider-4"
-                height={164}
-                min={0}
-                max={100}
-                step={1}
-                defaultValue={50}
-                value={50}
-                orientation="vertical"
-                onChange={({ value }) => console.log('value', value)}
-              />
-              <Slider
-                disabled
-                name="slider-5"
-                height={164}
-                min={0}
-                max={100}
-                step={1}
-                defaultValue={72}
-                value={72}
-                orientation="vertical"
-                onChange={({ value }) => console.log('value', value)}
-              />
-            </Flexbox>
-          </WidgetWrapper>
-        </Flexbox>
       </Section>
       <Section title="Status">
         <WidgetWrapper>
@@ -1093,25 +1108,25 @@ export const App: React.FC = () => {
       <Section title="Text Input">
         <WidgetWrapper>
           <Flexbox gap="md" display="inline-flex" fullWidth>
-            <TextInput
+            <Input
               name="password"
               type="password"
               placeholder="Your password"
             />
-            <TextInput
+            <Input
               name="spotify-api-key"
               placeholder="Your Spotify API key"
               iconName="key-2"
               onChange={(value) => console.log('Text input value:', value)}
             />
-            <TextInput
+            <Input
               name="email"
               type="email"
               placeholder="Your email address"
               iconName="mail"
               hint="Leon will notify you there once the task is over."
             />
-            <TextInput
+            <Input
               name="email"
               type="email"
               placeholder="Your email address (disabled)"
@@ -1119,32 +1134,32 @@ export const App: React.FC = () => {
               value="louis@getleon.ai"
               disabled
             />
-            <TextInput
+            <Input
               name="test"
               placeholder="Test"
               value="This is a test (disabled)"
               disabled
             />
-            <TextInput name="multiline" placeholder="Multiline" multiline />
-            <TextInput
+            <Input name="multiline" placeholder="Multiline" multiline />
+            <Input
               name="comment"
               placeholder="Your comment here..."
               multiline
               iconName="edit-2"
             />
-            <TextInput
+            <Input
               name="email-content"
               placeholder="Your email content here..."
               multiline
               iconName="mail"
             />
-            <TextInput
+            <Input
               name="content"
               placeholder="Content here... (custom height)"
               multiline
               height={200}
             />
-            <TextInput
+            <Input
               name="multiline"
               placeholder="Multiline (disabled)"
               value="Multiline (disabled)"
@@ -1695,7 +1710,7 @@ export const App: React.FC = () => {
                 <Text secondary>Eminem</Text>
               </Flexbox>
               <Flexbox fullWidth paddingX gap="sm">
-                <Slider
+                <RangeSlider
                   width="100%"
                   defaultValue={33}
                   name="duration"

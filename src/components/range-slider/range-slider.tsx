@@ -9,9 +9,9 @@ import {
   type SliderProps as ArkSliderProps
 } from '@ark-ui/react'
 
-import './slider.sass'
+import './range-slider.sass'
 
-export interface SliderProps
+export interface RangeSliderProps
   extends Pick<
     ArkSliderProps,
     | 'value'
@@ -29,7 +29,7 @@ export interface SliderProps
   hiddenThumb?: boolean
 }
 
-export function Slider({
+export function RangeSlider({
   name,
   width,
   height,
@@ -42,22 +42,22 @@ export function Slider({
   orientation = 'horizontal',
   hiddenThumb,
   onChange
-}: SliderProps) {
+}: RangeSliderProps) {
   const [newValue, setNewValue] = useState(value)
   const valueInPercent =
     Number(((Number(newValue) - min) / (max - min)).toFixed(2)) * 100
 
   return (
     <div
-      className="aurora-slider-container"
+      className="aurora-range-slider-container"
       style={{
         width,
         height
       }}
     >
       <ArkSlider
-        className={classNames('aurora-slider', {
-          'aurora-slider--hidden-thumb': hiddenThumb
+        className={classNames('aurora-range-slider', {
+          'aurora-range-slider--hidden-thumb': hiddenThumb
         })}
         name={name}
         value={newValue}
@@ -73,17 +73,18 @@ export function Slider({
           onChange?.(details)
         }}
       >
-        <SliderControl className="aurora-slider-control">
-          <SliderTrack className="aurora-slider-track">
+        <input type="hidden" name={name} value={newValue} />
+        <SliderControl className="aurora-range-slider-control">
+          <SliderTrack className="aurora-range-slider-track">
             <SliderRange
-              className="aurora-slider-range"
+              className="aurora-range-slider-range"
               style={{
                 [orientation === 'horizontal' ? 'width' : 'height']:
                   `${valueInPercent}%`
               }}
             />
           </SliderTrack>
-          <SliderThumb className="aurora-slider-thumb" />
+          <SliderThumb className="aurora-range-slider-thumb" />
         </SliderControl>
       </ArkSlider>
     </div>

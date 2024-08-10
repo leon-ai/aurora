@@ -3,37 +3,58 @@ import classNames from 'clsx'
 
 import { Text, Icon } from '../..'
 
-import './text-input.sass'
+import './input.sass'
 
-export interface TextInputProps {
+export interface InputProps {
   name: string
   placeholder: string
+  required?: boolean
   value?: string
-  type?: 'text' | 'password' | 'email' | 'tel' | 'url'
+  type?:
+    | 'text'
+    | 'password'
+    | 'email'
+    | 'tel'
+    | 'url'
+    | 'number'
+    | 'date'
+    | 'time'
+    | 'datetime-local'
+    | 'month'
+    | 'week'
+    | 'color'
   iconName?: string
   hint?: string
   disabled?: boolean
   height?: number | 'auto'
+  minLength?: number
   maxLength?: number
+  min?: number
+  max?: number
+  step?: number
+  pattern?: string
   multiline?: boolean
   autofocus?: boolean
   onChange?: (value: string) => void
 }
 
-export function TextInput({
+export function Input({
   name,
   placeholder,
+  required = false,
   type = 'text',
   iconName,
   hint,
   value,
   disabled,
   height = 'auto',
+  minLength,
   maxLength,
+  pattern,
   multiline,
   autofocus,
   onChange
-}: TextInputProps) {
+}: InputProps) {
   const [inputValue, setInputValue] = useState(value || '')
 
   if (!multiline) {
@@ -47,14 +68,16 @@ export function TextInput({
   }
 
   return (
-    <div className="aurora-text-input-container">
+    <div className="aurora-input-container">
       {multiline ? (
         <textarea
           name={name}
           placeholder={placeholder}
+          required={required}
           value={inputValue}
           disabled={disabled}
           autoFocus={autofocus}
+          minLength={minLength}
           maxLength={maxLength}
           onChange={(e) => {
             setInputValue(e.target.value)
@@ -64,10 +87,10 @@ export function TextInput({
             }
           }}
           style={{ height }}
-          className={classNames('aurora-text-input', {
-            'aurora-text-input--multiline': true,
-            'aurora-text-input--disabled': disabled,
-            'aurora-text-input--with-icon': !!iconName
+          className={classNames('aurora-input', {
+            'aurora-input--multiline': true,
+            'aurora-input--disabled': disabled,
+            'aurora-input--with-icon': !!iconName
           })}
         />
       ) : (
@@ -75,10 +98,13 @@ export function TextInput({
           type={type}
           name={name}
           placeholder={placeholder}
+          required={required}
           value={inputValue}
           disabled={disabled}
           autoFocus={autofocus}
+          minLength={minLength}
           maxLength={maxLength}
+          pattern={pattern}
           onChange={(e) => {
             setInputValue(e.target.value)
 
@@ -86,19 +112,19 @@ export function TextInput({
               onChange(e.target.value)
             }
           }}
-          className={classNames('aurora-text-input', {
-            'aurora-text-input--disabled': disabled,
-            'aurora-text-input--with-icon': !!iconName
+          className={classNames('aurora-input', {
+            'aurora-input--disabled': disabled,
+            'aurora-input--with-icon': !!iconName
           })}
         />
       )}
       {iconName && (
-        <div className="aurora-text-input-icon-container">
+        <div className="aurora-input-icon-container">
           <Icon name={iconName} type="fill" />
         </div>
       )}
       {hint && (
-        <div className="aurora-text-input-hint-container">
+        <div className="aurora-input-hint-container">
           <Text fontSize="xs" tertiary>
             {hint}
           </Text>

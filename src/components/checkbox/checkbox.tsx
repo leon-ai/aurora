@@ -14,7 +14,7 @@ import './checkbox.sass'
 export interface CheckboxProps
   extends Pick<
     ArkCheckboxProps,
-    'value' | 'checked' | 'disabled' | 'onChange'
+    'value' | 'checked' | 'disabled' | 'required' | 'onChange'
   > {
   name: string
   label?: string
@@ -26,6 +26,7 @@ export function Checkbox({
   checked,
   value,
   disabled,
+  required,
   onChange
 }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(checked)
@@ -37,6 +38,7 @@ export function Checkbox({
       value={value}
       checked={isChecked}
       disabled={disabled}
+      required={required}
       onChange={(event) => {
         setIsChecked(event.checked as boolean)
 

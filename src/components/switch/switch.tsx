@@ -11,7 +11,10 @@ import {
 import './switch.sass'
 
 export interface SwitchProps
-  extends Pick<ArkSwitchProps, 'value' | 'checked' | 'disabled' | 'onChange'> {
+  extends Pick<
+    ArkSwitchProps,
+    'value' | 'checked' | 'disabled' | 'required' | 'onChange'
+  > {
   name: string
   label?: string
 }
@@ -22,6 +25,7 @@ export function Switch({
   checked,
   value,
   disabled,
+  required,
   onChange
 }: SwitchProps) {
   const [isChecked, setIsChecked] = useState(checked)
@@ -33,6 +37,7 @@ export function Switch({
       value={value}
       checked={isChecked}
       disabled={disabled}
+      required={required}
       onChange={(e) => {
         setIsChecked(e.checked)
 
