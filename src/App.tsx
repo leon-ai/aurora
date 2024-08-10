@@ -6,6 +6,7 @@ import {
   Checkbox,
   CircularProgress,
   Flexbox,
+  Form,
   Icon,
   IconButton,
   Image,
@@ -100,16 +101,6 @@ export const App: React.FC = () => {
   const [isSendingIconButton, setIsSendingIconButton] = useState(false)
   const [isPlayButtonActivated, setIsPlayButtonActivated] = useState(false)
   const [isPlayButton2Activated, setIsPlayButton2Activated] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    // get form value
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    const data = Object.fromEntries(formData)
-    console.log(data)
-  }
 
   return (
     <>
@@ -283,6 +274,50 @@ export const App: React.FC = () => {
               </Card>
             </Flexbox>
           </Flexbox>
+        </WidgetWrapper>
+      </Section>
+      <Section title="Form">
+        <WidgetWrapper>
+          <Form
+            onSubmit={(data) => {
+              alert(JSON.stringify(data))
+            }}
+          >
+            <Flexbox gap="xl">
+              <TextInput name="username" placeholder="Enter your username..." />
+              <TextInput
+                name="password"
+                placeholder="Enter your password..."
+                type="password"
+              />
+              <Switch name="notification" label="Enable notifications" />
+              <RadioGroup defaultValue="lemon">
+                <Flexbox gap="md">
+                  <Radio label="Strawberry" name="fruit" value="strawberry" />
+                  <Radio label="Apple" name="fruit" value="apple" />
+                  <Radio label="Lemon" name="fruit" value="lemon" />
+                </Flexbox>
+              </RadioGroup>
+              <Select
+                name="language"
+                placeholder="Your favorite programming language"
+              >
+                <SelectOption value="javascript" label="JavaScript" />
+                <SelectOption value="python" label="Python" />
+                <SelectOption value="java" label="Java" />
+                <SelectOption value="csharp" label="C#" />
+                <SelectOption value="c++" label="C++" />
+                <SelectOption value="ruby" label="Ruby" />
+              </Select>
+              <Checkbox
+                name="terms"
+                label="I agree to the terms and conditions"
+                checked={false}
+                value="terms"
+              />
+              <Button type="submit">Submit</Button>
+            </Flexbox>
+          </Form>
         </WidgetWrapper>
       </Section>
       <Section title="Icon">
@@ -900,28 +935,26 @@ export const App: React.FC = () => {
       <Section title="Select">
         <WidgetWrapper>
           <Flexbox gap="md">
-            <form onSubmit={handleSubmit}>
-              <Select
-                name="llm"
-                placeholder="Choose your LLM solution right now!!"
-                onChange={(details) => console.log('Selected', details)}
-              >
-                <SelectOption value="gpt-4" label="GPT-4" />
-                <SelectOption value="gpt-3.5" label="GPT-3.5" />
-                <SelectOption value="claude" label="Claude" />
-                <SelectOption value="falcon-7b" label="Falcon-7B" />
-                <SelectOption value="mpt-7b" label="MPT-7B" disabled />
-                <SelectOption value="dolly-v2-3b" label="Dolly-v2-3B" />
-              </Select>
-              <Button type="submit">Go!</Button>
-              <Select
-                name="llm-2"
-                placeholder="Choose your LLM solution"
-                disabled
-              >
-                ...
-              </Select>
-            </form>
+            <Select
+              name="llm"
+              placeholder="Choose your LLM solution"
+              onChange={(details) => console.log('Selected', details)}
+            >
+              <SelectOption value="gpt-4" label="GPT-4" />
+              <SelectOption value="gpt-3.5" label="GPT-3.5" />
+              <SelectOption value="claude" label="Claude" />
+              <SelectOption value="falcon-7b" label="Falcon-7B" />
+              <SelectOption value="mpt-7b" label="MPT-7B" disabled />
+              <SelectOption value="dolly-v2-3b" label="Dolly-v2-3B" />
+            </Select>
+            <Button type="submit">Go!</Button>
+            <Select
+              name="llm-2"
+              placeholder="Choose your LLM solution"
+              disabled
+            >
+              ...
+            </Select>
           </Flexbox>
         </WidgetWrapper>
       </Section>
