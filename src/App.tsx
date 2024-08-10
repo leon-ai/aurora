@@ -58,29 +58,35 @@ function formatTime(seconds: number): string {
   return `${formattedMinutes}:${formattedSeconds}`
 }
 
-function Timer({ value }: { value: number }) {
-  const [timeLeft, setTimeLeft] = useState(600)
-  const [progress, setProgress] = useState(value)
+function Timer({
+  value,
+  initialTime,
+  interval
+}: {
+  value: number
+  initialTime: number
+  interval: number
+}) {
+  const [progress, setProgress] = useState(0)
+  const [timeLeft, setTimeLeft] = useState(initialTime)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (progress < 100) {
-        setTimeLeft((prevTimeLeft) => {
-          if (prevTimeLeft > 0) {
-            setProgress((prevProgress) => prevProgress + 100 / 600)
+    setTimeLeft(initialTime)
+    setProgress(0)
+  }, [value])
 
-            return prevTimeLeft - 1
-          } else {
-            clearInterval(interval)
+  useEffect(() => {
+    if (timeLeft === 0) {
+      return
+    }
 
-            return prevTimeLeft
-          }
-        })
-      }
-    }, 1000)
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime - 1)
+      setProgress((prevProgress) => prevProgress + 100 / initialTime)
+    }, interval)
 
-    return () => clearInterval(interval)
-  }, [progress])
+    return () => clearInterval(timer)
+  }, [timeLeft])
 
   return (
     <CircularProgress value={progress} size="lg">
@@ -218,7 +224,7 @@ export const App: React.FC = () => {
             </Flexbox>
           </WidgetWrapper>
           <WidgetWrapper>
-            <Timer value={0} />
+            <Timer value={0} initialTime={600} interval={1_000} />
           </WidgetWrapper>
         </Flexbox>
       </Section>
@@ -284,6 +290,14 @@ export const App: React.FC = () => {
             }}
           >
             <Flexbox gap="md">
+              <Checkbox name="ingredients[]" value="sugar" label="Sugar" />
+              <Checkbox
+                name="ingredients[]"
+                value="eggs"
+                label="Eggs"
+                checked
+              />
+              <Checkbox name="ingredients[]" value="bread" label="Bread" />
               <Input name="username" placeholder="Enter your username..." />
               <Input type="date" name="date" placeholder="Date..." />
               <Input
@@ -303,8 +317,8 @@ export const App: React.FC = () => {
                 type="password"
               />
               <Input name="content" placeholder="Your content..." multiline />
-              <Text>Length</Text>
-              <RangeSlider name="length" min={0} max={100} step={10} />
+              <Text>Random size</Text>
+              <RangeSlider name="random-size" min={0} max={100} step={10} />
               <Switch name="notification" label="Enable notifications" />
               <RadioGroup defaultValue="lemon">
                 <Flexbox gap="md">
