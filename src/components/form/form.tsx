@@ -18,7 +18,9 @@ export function Form({ children, onSubmit }: FormProps) {
     for (const [key, value] of formData.entries()) {
       if (data[key] && key.endsWith('[]')) {
         if (Array.isArray(data[key])) {
-          data[key].push(value)
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          ;(data[key] as []).push(value)
         } else {
           data[key] = [data[key], value]
         }

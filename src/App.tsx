@@ -73,7 +73,7 @@ function Timer({
   useEffect(() => {
     setTimeLeft(initialTime)
     setProgress(0)
-  }, [value])
+  }, [initialTime, value])
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -86,7 +86,7 @@ function Timer({
     }, interval)
 
     return () => clearInterval(timer)
-  }, [timeLeft])
+  }, [initialTime, interval, timeLeft])
 
   return (
     <CircularProgress value={progress} size="lg">
