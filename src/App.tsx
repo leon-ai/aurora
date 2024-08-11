@@ -320,11 +320,11 @@ export const App: React.FC = () => {
               <Text>Random size</Text>
               <RangeSlider name="random-size" min={0} max={100} step={10} />
               <Switch name="notification" label="Enable notifications" />
-              <RadioGroup defaultValue="lemon">
+              <RadioGroup defaultValue="lemon" name="fruit">
                 <Flexbox gap="md">
-                  <Radio label="Strawberry" name="fruit" value="strawberry" />
-                  <Radio label="Apple" name="fruit" value="apple" />
-                  <Radio label="Lemon" name="fruit" value="lemon" />
+                  <Radio label="Strawberry" value="strawberry" />
+                  <Radio label="Apple" value="apple" />
+                  <Radio label="Lemon" value="lemon" />
                 </Flexbox>
               </RadioGroup>
               <Select
@@ -905,12 +905,16 @@ export const App: React.FC = () => {
       </Section>
       <Section title="Radio">
         <WidgetWrapper>
-          <RadioGroup defaultValue="orange">
+          <RadioGroup
+            defaultValue="orange"
+            name="fruit"
+            onChange={(data) => alert(JSON.stringify(data))}
+          >
             <Flexbox gap="md">
-              <Radio label="Strawberry" name="fruit" value="strawberry" />
-              <Radio label="Apple" name="fruit" value="apple" />
-              <Radio label="Lemon" name="fruit" value="lemon" />
-              <Radio label="Orange" name="fruit" value="orange" disabled />
+              <Radio label="Strawberry" value="strawberry" />
+              <Radio label="Apple" value="apple" />
+              <Radio label="Lemon" value="lemon" />
+              <Radio label="Orange" value="orange" disabled />
             </Flexbox>
           </RadioGroup>
         </WidgetWrapper>

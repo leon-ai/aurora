@@ -5,13 +5,23 @@ import {
 
 import './radio-group.sass'
 
+interface RadioGroupOnChangeData {
+  name: string
+  value: string | number | undefined
+}
+
 export interface RadioGroupProps
   extends Pick<
     ArkRadioGroupProps,
-    'children' | 'defaultValue' | 'disabled' | 'onChange'
-  > {}
+    'value' | 'children' | 'defaultValue' | 'disabled'
+  > {
+  name: string
+  onChange?: (data: RadioGroupOnChangeData) => void
+}
 
 export function RadioGroup({
+  name,
+  value,
   children,
   defaultValue,
   disabled,
@@ -20,9 +30,20 @@ export function RadioGroup({
   return (
     <ArkRadioGroup
       className="aurora-radio-group"
+      name={name}
       defaultValue={defaultValue}
+      value={value}
       disabled={disabled}
-      onChange={onChange}
+      onChange={(event) => {
+        const data = {
+          name,
+          value: event.value
+        }
+
+        if (onChange) {
+          onChange(data)
+        }
+      }}
       orientation="horizontal"
     >
       {children}
