@@ -1071,13 +1071,20 @@ export const App: React.FC = () => {
               checked={false}
               name="living-room"
               label="Living room light"
+              onChange={(data) => alert(JSON.stringify(data))}
             />
-            <Switch checked={true} name="kitchen" label="Kitchen light" />
+            <Switch
+              checked={true}
+              name="kitchen"
+              label="Kitchen light"
+              onChange={(data) => alert(JSON.stringify(data))}
+            />
             <Switch
               checked={true}
               disabled
               name="entrance"
               label="Entrance light"
+              onChange={(data) => alert(JSON.stringify(data))}
             />
           </Flexbox>
         </WidgetWrapper>

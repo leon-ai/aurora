@@ -10,13 +10,17 @@ import {
 
 import './switch.sass'
 
+interface SwitchOnChangeData {
+  name: string
+  value: string | number | undefined
+  isSwitched: boolean
+}
+
 export interface SwitchProps
-  extends Pick<
-    ArkSwitchProps,
-    'value' | 'checked' | 'disabled' | 'required' | 'onChange'
-  > {
+  extends Pick<ArkSwitchProps, 'value' | 'checked' | 'disabled' | 'required'> {
   name: string
   label?: string
+  onChange?: (data: SwitchOnChangeData) => void
 }
 
 export function Switch({
@@ -38,11 +42,17 @@ export function Switch({
       checked={isChecked}
       disabled={disabled}
       required={required}
-      onChange={(e) => {
-        setIsChecked(e.checked)
+      onChange={(event) => {
+        setIsChecked(event.checked)
+
+        const data = {
+          name,
+          value,
+          isSwitched: event.checked
+        }
 
         if (onChange) {
-          onChange(e)
+          onChange(data)
         }
       }}
     >
