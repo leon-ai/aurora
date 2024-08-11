@@ -125,7 +125,7 @@ export const App: React.FC = () => {
 
                   setTimeout(() => {
                     setIsSending(false)
-                  }, 2000)
+                  }, 2_000)
                 }}
               >
                 Send
@@ -358,29 +358,29 @@ export const App: React.FC = () => {
       <Section title="Icon">
         <WidgetWrapper>
           <Flexbox alignItems="center" gap="xs" flexDirection="row">
-            <Icon name="home-heart" size="md" />
+            <Icon iconName="home-heart" size="md" />
             <Text>Test here</Text>
           </Flexbox>
           <Flexbox flexDirection="row" gap="md">
-            <Icon name="home-heart" size="xs" />
-            <Icon name="home-heart" size="sm" />
-            <Icon name="home-heart" size="md" bgColor="blue" />
+            <Icon iconName="home-heart" size="xs" />
+            <Icon iconName="home-heart" size="sm" />
+            <Icon iconName="home-heart" size="md" bgColor="blue" />
             <Icon
-              name="home-heart"
+              iconName="home-heart"
               size="md"
               bgColor="secondary-yellow"
               color="yellow"
             />
             <Icon
-              name="home-heart"
+              iconName="home-heart"
               size="lg"
               color="yellow"
               bgColor="transparent-yellow"
             />
-            <Icon name="home-heart" size="lg" color="blue" />
-            <Icon name="home-heart" size="xl" bgColor="blue" />
+            <Icon iconName="home-heart" size="lg" color="blue" />
+            <Icon iconName="home-heart" size="xl" bgColor="blue" />
             <Icon
-              name="home-heart"
+              iconName="home-heart"
               size="xl"
               color="red"
               bgColor="transparent-red"
@@ -394,74 +394,78 @@ export const App: React.FC = () => {
             <Flexbox gap="md">
               <Flexbox flexDirection="row" gap="md">
                 <IconButton
+                  iconName="mail"
                   name="mail"
+                  value="send"
                   loading={isSendingIconButton}
-                  onClick={() => {
-                    console.log('button clicked')
+                  onClick={(data) => {
                     setIsSendingIconButton(true)
+
+                    alert(JSON.stringify(data))
 
                     setTimeout(() => {
                       setIsSendingIconButton(false)
-                    }, 2000)
+                    }, 2_000)
                   }}
                 />
-                <IconButton name="mail" loading />
-                <IconButton name="mail" disabled />
+                <IconButton iconName="mail" loading />
+                <IconButton iconName="mail" disabled />
               </Flexbox>
               <Flexbox flexDirection="row" gap="md">
-                <IconButton name="mail" secondary />
-                <IconButton name="mail" shape="circle" secondary />
-                <IconButton name="mail" shape="circle" secondary disabled />
+                <IconButton iconName="mail" secondary />
+                <IconButton iconName="mail" shape="circle" secondary />
+                <IconButton iconName="mail" shape="circle" secondary disabled />
               </Flexbox>
               <Flexbox flexDirection="row" gap="md">
-                <IconButton name="delete-bin" danger />
-                <IconButton name="delete-bin" shape="circle" danger />
-                <IconButton name="delete-bin" disabled danger />
+                <IconButton iconName="delete-bin" danger />
+                <IconButton iconName="delete-bin" shape="circle" danger />
+                <IconButton iconName="delete-bin" disabled danger />
               </Flexbox>
               <Flexbox flexDirection="row" gap="md">
                 <IconButton
-                  name="send-plane"
+                  iconName="send-plane"
+                  name="send"
+                  value="plane"
                   light
                   iconType="line"
                   activated={false}
-                  onClick={(isActivated) =>
-                    console.log('isActivated', isActivated)
-                  }
+                  onClick={(data) => console.log('data', data)}
                 />
                 <IconButton
-                  name="send-plane"
+                  iconName="send-plane"
+                  name="send"
+                  value="plane"
                   light
                   iconType="fill"
                   activated={false}
-                  onClick={(isActivated) =>
-                    console.log('isActivated', isActivated)
-                  }
+                  onClick={(data) => console.log('data', data)}
                 />
-                <IconButton name="send-plane" light iconType="fill" disabled />
+                <IconButton
+                  iconName="send-plane"
+                  light
+                  iconType="fill"
+                  disabled
+                />
               </Flexbox>
               <Flexbox flexDirection="row" gap="md">
                 <IconButton
-                  name="send-plane"
+                  iconName="send-plane"
                   light
                   secondary
                   iconType="line"
                   activated={false}
-                  onClick={(isActivated) =>
-                    console.log('isActivated', isActivated)
-                  }
+                  onClick={(data) => console.log('data', data)}
                 />
                 <IconButton
-                  name="send-plane"
+                  iconName="send-plane"
                   light
                   secondary
                   iconType="fill"
                   activated={false}
-                  onClick={(isActivated) =>
-                    console.log('isActivated', isActivated)
-                  }
+                  onClick={(data) => console.log('data', data)}
                 />
                 <IconButton
-                  name="send-plane"
+                  iconName="send-plane"
                   light
                   secondary
                   iconType="fill"
@@ -477,40 +481,50 @@ export const App: React.FC = () => {
               flexDirection="row"
             >
               <IconButton
-                name="shuffle"
+                iconName="shuffle"
                 light
                 activated
-                onClick={(isActivated) => console.log('Shuffle', isActivated)}
+                onClick={(data) => console.log('Shuffle', data.isActivated)}
               />
               <Flexbox flexDirection="row">
-                <IconButton name="skip-left" size="lg" light iconType="fill" />
                 <IconButton
-                  name={isPlayButtonActivated ? 'pause' : 'play'}
+                  iconName="skip-left"
+                  size="lg"
+                  light
+                  iconType="fill"
+                />
+                <IconButton
+                  iconName={isPlayButtonActivated ? 'pause' : 'play'}
                   size="lg"
                   shape="circle"
                   iconType="fill"
                   activated={false}
-                  onClick={(isActivated) => {
-                    console.log('Play', isActivated)
-                    setIsPlayButtonActivated(isActivated)
+                  onClick={(data) => {
+                    console.log('Play', data.isActivated)
+                    setIsPlayButtonActivated(data.isActivated)
                   }}
                 />
-                <IconButton name="skip-right" size="lg" light iconType="fill" />
+                <IconButton
+                  iconName="skip-right"
+                  size="lg"
+                  light
+                  iconType="fill"
+                />
               </Flexbox>
               <IconButton
-                name="repeat"
+                iconName="repeat"
                 light
                 activated={false}
-                onClick={(isActivated) => console.log('Repeat', isActivated)}
+                onClick={(data) => console.log('Repeat', data.isActivated)}
               />
             </Flexbox>
           </WidgetWrapper>
           <WidgetWrapper>
             <Flexbox gap="md" flexDirection="row">
-              <IconButton name="mail" size="xs" />
-              <IconButton name="mail" size="sm" />
-              <IconButton name="mail" size="md" />
-              <IconButton name="mail" size="lg" />
+              <IconButton iconName="mail" size="xs" />
+              <IconButton iconName="mail" size="sm" />
+              <IconButton iconName="mail" size="md" />
+              <IconButton iconName="mail" size="lg" />
             </Flexbox>
           </WidgetWrapper>
         </Flexbox>
@@ -597,12 +611,12 @@ export const App: React.FC = () => {
             <Flexbox flexDirection="row" gap="md">
               <Link href="https://docs.getleon.ai/">Docs</Link>
               <Link href="https://docs.getleon.ai/">
-                <Icon name="file" />
+                <Icon iconName="file" />
                 Docs
               </Link>
               <Link href="https://docs.getleon.ai/">
                 Next
-                <Icon name="arrow-right" />
+                <Icon iconName="arrow-right" />
               </Link>
             </Flexbox>
             <Flexbox flexDirection="row" gap="md">
@@ -610,12 +624,12 @@ export const App: React.FC = () => {
                 Docs
               </Link>
               <Link href="https://docs.getleon.ai/" fontSize="sm">
-                <Icon name="file" size="sm" />
+                <Icon iconName="file" size="sm" />
                 Docs
               </Link>
               <Link href="https://docs.getleon.ai/" fontSize="sm">
                 Next
-                <Icon name="arrow-right" size="sm" />
+                <Icon iconName="arrow-right" size="sm" />
               </Link>
             </Flexbox>
           </Flexbox>
@@ -632,7 +646,7 @@ export const App: React.FC = () => {
                   label="Potatoes"
                   value="item1"
                   checked={false}
-                  onChange={(e) => console.log('Checkbox state:', e)}
+                  onChange={(data) => console.log('Checkbox', data)}
                 />
               </ListItem>
               <ListItem>
@@ -683,7 +697,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="check"
+                    iconName="check"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -696,7 +710,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="check"
+                    iconName="check"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -709,7 +723,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="check"
+                    iconName="check"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -726,7 +740,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="alert"
+                    iconName="alert"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -739,7 +753,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="close"
+                    iconName="close"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -752,7 +766,7 @@ export const App: React.FC = () => {
               <ListItem>
                 <Flexbox flexDirection="row" alignItems="center" gap="sm">
                   <Icon
-                    name="close"
+                    iconName="close"
                     size="sm"
                     type="fill"
                     bgShape="circle"
@@ -813,7 +827,7 @@ export const App: React.FC = () => {
             />
             <List>
               <ListHeader>
-                <Icon name="book-2" />
+                <Icon iconName="book-2" />
                 Pancakes Ingredients
               </ListHeader>
               <ListItem>
@@ -1765,41 +1779,41 @@ export const App: React.FC = () => {
                 paddingX
               >
                 <IconButton
-                  name="shuffle"
+                  iconName="shuffle"
                   light
                   activated
-                  onClick={(isActivated) => console.log('Shuffle', isActivated)}
+                  onClick={(data) => console.log('Shuffle', data.isActivated)}
                 />
                 <Flexbox flexDirection="row">
                   <IconButton
-                    name="skip-left"
+                    iconName="skip-left"
                     size="lg"
                     light
                     iconType="fill"
                   />
                   <IconButton
-                    name={isPlayButton2Activated ? 'pause' : 'play'}
+                    iconName={isPlayButton2Activated ? 'pause' : 'play'}
                     size="lg"
                     shape="circle"
                     iconType="fill"
                     activated={false}
-                    onClick={(isActivated) => {
-                      console.log('Play', isActivated)
-                      setIsPlayButton2Activated(isActivated)
+                    onClick={(data) => {
+                      console.log('Play', data.isActivated)
+                      setIsPlayButton2Activated(data.isActivated)
                     }}
                   />
                   <IconButton
-                    name="skip-right"
+                    iconName="skip-right"
                     size="lg"
                     light
                     iconType="fill"
                   />
                 </Flexbox>
                 <IconButton
-                  name="repeat"
+                  iconName="repeat"
                   light
                   activated={false}
-                  onClick={(isActivated) => console.log('Repeat', isActivated)}
+                  onClick={(data) => console.log('Repeat', data.isActivated)}
                 />
               </Flexbox>
             </Flexbox>

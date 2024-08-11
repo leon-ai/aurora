@@ -82,7 +82,7 @@ export function Select({
                   : placeholder}
               </div>
               <div className="aurora-select-trigger-icon-container">
-                <Icon name="arrow-down-s" />
+                <Icon iconName="arrow-down-s" />
               </div>
             </Flexbox>
           </SelectTrigger>

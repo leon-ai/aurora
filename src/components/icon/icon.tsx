@@ -5,7 +5,7 @@ import type { Color, Size, IconType } from '../../lib/types'
 import './icon.sass'
 
 export interface IconProps {
-  name?: string
+  iconName?: string
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   svg?: any
   // svg?: React.ReactNode
@@ -30,7 +30,7 @@ const REMIX_SIZE_MAPPING = {
  * @see https://remixicon.com/
  */
 export function Icon({
-  name,
+  iconName,
   svg,
   type = 'line',
   color,
@@ -39,7 +39,7 @@ export function Icon({
   bgColor,
   animated
 }: IconProps) {
-  let iconClassName = `ri-${name}`
+  let iconClassName = `ri-${iconName}`
 
   if (type) {
     iconClassName = `${iconClassName}-${type}`

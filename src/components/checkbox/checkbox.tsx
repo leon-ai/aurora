@@ -65,7 +65,7 @@ export function Checkbox({
           <CheckboxInput />
           <CheckboxControl className="aurora-checkbox-control">
             {state.isChecked ? (
-              <Icon name="check" size="sm" animated />
+              <Icon iconName="check" size="sm" animated />
             ) : (
               <div className="aurora-checkbox-placeholder" />
             )}

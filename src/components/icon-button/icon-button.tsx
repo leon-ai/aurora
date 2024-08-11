@@ -6,8 +6,16 @@ import { type IconProps } from '../icon'
 
 import './icon-button.sass'
 
+interface IconButtonOnClickData {
+  name: string | undefined
+  value: string | number | undefined
+  isActivated: boolean
+}
+
 export interface IconButtonProps {
-  name: string
+  iconName: string
+  name?: string
+  value?: string | number | undefined
   type?: 'button' | 'submit'
   iconType?: IconProps['type']
   size?: IconProps['size']
@@ -18,11 +26,13 @@ export interface IconButtonProps {
   light?: boolean
   disabled?: boolean
   loading?: boolean
-  onClick?: (isActivated: boolean) => void
+  onClick?: (data: IconButtonOnClickData) => void
 }
 
 export function IconButton({
+  iconName,
   name,
+  value,
   type = 'button',
   iconType = 'line',
   size,
@@ -46,6 +56,8 @@ export function IconButton({
   return (
     <button
       type={type}
+      name={name}
+      value={value}
       className={classNames('aurora-icon-button aurora-button', {
         'aurora-button--secondary': secondary,
         'aurora-button--light': light,
@@ -57,15 +69,32 @@ export function IconButton({
         [`aurora-icon-button--${shape}`]: shape
       })}
       disabled={disabled || loading}
-      onClick={() => {
+      onClick={(event) => {
+        if (type !== 'button') {
+          return
+        }
+
+        event.preventDefault()
+
         if (onClick) {
+          const data = {
+            name,
+            value
+          }
+
           if (typeof activated === 'undefined') {
-            onClick(false)
+            onClick({
+              ...data,
+              isActivated: false
+            })
           } else {
             const newActivatedState = !isActivated
 
             setIsActivated(newActivatedState)
-            onClick(newActivatedState)
+            onClick({
+              ...data,
+              isActivated: newActivatedState
+            })
           }
         }
       }}
@@ -74,7 +103,7 @@ export function IconButton({
         <Loader />
       ) : (
         <>
-          <Icon type={iconType} name={name} size={size} />
+          <Icon type={iconType} iconName={iconName} size={size} />
         </>
       )}
     </button>

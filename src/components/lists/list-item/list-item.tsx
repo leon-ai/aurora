@@ -29,7 +29,7 @@ export function ListItem({ children, align, onClick }: ListItemProps) {
         <>
           {children}
           <div className="aurora-list-item-clickable-icon">
-            <Icon name="arrow-right-double" />
+            <Icon iconName="arrow-right-double" />
           </div>
         </>
       ) : (

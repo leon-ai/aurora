@@ -32,7 +32,7 @@ export function Status({
           flexDirection="row"
           gap="xs"
         >
-          <Icon name={iconName} type={iconType} size="sm" />
+          <Icon iconName={iconName} type={iconType} size="sm" />
           <i>{children}</i>
         </Flexbox>
       ) : (

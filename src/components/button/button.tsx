@@ -89,7 +89,7 @@ export function Button({
               alignItems="center"
               gap="xs"
             >
-              <Icon name={iconName} type="line" />
+              <Icon iconName={iconName} type="line" />
               {children}
             </Flexbox>
           )}
@@ -101,7 +101,7 @@ export function Button({
               gap="xs"
             >
               {children}
-              <Icon name={iconName} type="line" />
+              <Icon iconName={iconName} type="line" />
             </Flexbox>
           )}
           {!iconName && children}

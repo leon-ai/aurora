@@ -120,7 +120,7 @@ export function Input({
       )}
       {iconName && (
         <div className="aurora-input-icon-container">
-          <Icon name={iconName} type="fill" />
+          <Icon iconName={iconName} type="fill" />
         </div>
       )}
       {hint && (
