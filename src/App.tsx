@@ -195,14 +195,14 @@ export const App: React.FC = () => {
               label="This is a checkbox"
               checked={false}
               value="test"
-              onChange={(e) => console.log('Checkbox state:', e)}
+              onChange={(data) => alert(JSON.stringify(data))}
             />
             <Checkbox
               name="checkbox-2"
               label="This is a checked checkbox"
               checked={true}
               value="test"
-              onChange={(e) => console.log('Checkbox state:', e)}
+              onChange={(data) => alert(JSON.stringify(data))}
             />
             <Checkbox
               name="checkbox-3"

@@ -11,13 +11,20 @@ import { Icon } from '../icon'
 
 import './checkbox.sass'
 
+interface CheckboxOnChangeData {
+  name: string
+  value: string | undefined
+  isChecked: boolean
+}
+
 export interface CheckboxProps
   extends Pick<
     ArkCheckboxProps,
-    'value' | 'checked' | 'disabled' | 'required' | 'onChange'
+    'value' | 'checked' | 'disabled' | 'required'
   > {
   name: string
   label?: string
+  onChange?: (data: CheckboxOnChangeData) => void
 }
 
 export function Checkbox({
@@ -42,8 +49,14 @@ export function Checkbox({
       onChange={(event) => {
         setIsChecked(event.checked as boolean)
 
+        const data = {
+          name,
+          value,
+          isChecked: !!event.checked
+        }
+
         if (onChange) {
-          onChange(event)
+          onChange(data)
         }
       }}
     >
