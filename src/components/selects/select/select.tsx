@@ -16,17 +16,19 @@ interface Option {
   label: string
   value: string
 }
+interface SelectOnChangeData {
+  name: string
+  value: string | number | undefined
+}
 
 export interface SelectProps
-  extends Pick<
-    ArkSelectProps,
-    'defaultValue' | 'selectedOption' | 'disabled' | 'onChange'
-  > {
+  extends Pick<ArkSelectProps, 'defaultValue' | 'selectedOption' | 'disabled'> {
   name: string
   selectedOption?: Option
   placeholder: string
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   children: any
+  onChange?: (data: SelectOnChangeData) => void
 }
 
 export function Select({
@@ -44,7 +46,17 @@ export function Select({
       selectedOption={selectedOption}
       defaultValue={defaultValue}
       disabled={disabled}
-      onChange={onChange}
+      onChange={(event) => {
+        const data = {
+          name,
+          label: event?.label,
+          value: event?.value
+        }
+
+        if (onChange) {
+          onChange(data)
+        }
+      }}
     >
       {({ selectedOption }) => (
         <>

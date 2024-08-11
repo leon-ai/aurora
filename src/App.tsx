@@ -1033,7 +1033,7 @@ export const App: React.FC = () => {
             <Select
               name="llm"
               placeholder="Choose your LLM solution"
-              onChange={(details) => console.log('Selected', details)}
+              onChange={(data) => alert(JSON.stringify(data))}
             >
               <SelectOption value="gpt-4" label="GPT-4" />
               <SelectOption value="gpt-3.5" label="GPT-3.5" />
@@ -1042,7 +1042,6 @@ export const App: React.FC = () => {
               <SelectOption value="mpt-7b" label="MPT-7B" disabled />
               <SelectOption value="dolly-v2-3b" label="Dolly-v2-3B" />
             </Select>
-            <Button type="submit">Go!</Button>
             <Select
               name="llm-2"
               placeholder="Choose your LLM solution"
