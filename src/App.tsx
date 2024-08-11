@@ -930,7 +930,7 @@ export const App: React.FC = () => {
                 step={1}
                 defaultValue={50}
                 value={50}
-                onChange={({ value }) => console.log('value', value)}
+                onChange={(data) => console.log(data)}
               />
               <RangeSlider
                 hiddenThumb
@@ -940,6 +940,7 @@ export const App: React.FC = () => {
                 step={1}
                 defaultValue={72}
                 value={72}
+                onChange={(data) => console.log(data)}
               />
               <RangeSlider
                 disabled
@@ -949,6 +950,7 @@ export const App: React.FC = () => {
                 step={1}
                 defaultValue={72}
                 value={72}
+                onChange={(data) => console.log(data)}
               />
             </Flexbox>
           </WidgetWrapper>
@@ -963,7 +965,7 @@ export const App: React.FC = () => {
                 defaultValue={50}
                 value={50}
                 orientation="vertical"
-                onChange={({ value }) => console.log('value', value)}
+                onChange={(data) => console.log(data)}
               />
               <RangeSlider
                 disabled
@@ -975,7 +977,7 @@ export const App: React.FC = () => {
                 defaultValue={72}
                 value={72}
                 orientation="vertical"
-                onChange={({ value }) => console.log('value', value)}
+                onChange={(data) => console.log(data)}
               />
             </Flexbox>
           </WidgetWrapper>

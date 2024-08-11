@@ -11,6 +11,11 @@ import {
 
 import './range-slider.sass'
 
+interface RangeSliderOnChangeData {
+  name: string
+  value: string | number | undefined
+}
+
 export interface RangeSliderProps
   extends Pick<
     ArkSliderProps,
@@ -21,12 +26,12 @@ export interface RangeSliderProps
     | 'step'
     | 'disabled'
     | 'orientation'
-    | 'onChange'
   > {
   name: string
   width?: number | string
   height?: number | string
   hiddenThumb?: boolean
+  onChange?: (data: RangeSliderOnChangeData) => void
 }
 
 export function RangeSlider({
@@ -67,10 +72,17 @@ export function RangeSlider({
         step={step}
         disabled={disabled}
         orientation={orientation}
-        onChange={(details) => {
-          setNewValue(details.value)
+        onChange={(event) => {
+          setNewValue(event.value)
 
-          onChange?.(details)
+          const data = {
+            name,
+            value: event?.value
+          }
+
+          if (onChange) {
+            onChange(data)
+          }
         }}
       >
         <input type="hidden" name={name} value={newValue} />
