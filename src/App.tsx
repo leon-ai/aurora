@@ -781,7 +781,12 @@ export const App: React.FC = () => {
           <WidgetWrapper noPadding>
             <List>
               <ListHeader align="center">Select your music provider</ListHeader>
-              <ListItem align="center" onClick={() => alert('Spotify')}>
+              <ListItem
+                align="center"
+                name="music-provider"
+                value="spotify"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
                 <Image
                   src="/spotify.svg"
                   width={110}
@@ -789,7 +794,12 @@ export const App: React.FC = () => {
                   backgroundSize="contain"
                 />
               </ListItem>
-              <ListItem align="center" onClick={() => alert('Apple Music')}>
+              <ListItem
+                align="center"
+                name="music-provider"
+                value="apple-music"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
                 <Image
                   src="/apple-music.svg"
                   width={110}
@@ -797,7 +807,12 @@ export const App: React.FC = () => {
                   backgroundSize="contain"
                 />
               </ListItem>
-              <ListItem align="center" onClick={() => alert('YouTube Music')}>
+              <ListItem
+                align="center"
+                name="music-provider"
+                value="youtube-music"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
                 <Image
                   src="/youtube-music.svg"
                   width={110}
@@ -805,7 +820,12 @@ export const App: React.FC = () => {
                   backgroundSize="contain"
                 />
               </ListItem>
-              <ListItem align="center" onClick={() => alert('Deezer')}>
+              <ListItem
+                align="center"
+                name="music-provider"
+                value="deezer"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
                 <Image
                   src="/deezer.svg"
                   width={110}
