@@ -155,15 +155,21 @@ export const App: React.FC = () => {
             </Flexbox>
           </WidgetWrapper>
           <WidgetWrapper>
-            <Flexbox gap="md">
-              <Input name="input-1" placeholder="Input 1" />
-              <Input name="input-2" placeholder="Input 2" />
-              <Flexbox gap="md">
-                <Button type="submit">Submit</Button>
-                <Button type="reset" secondary>
-                  Reset
-                </Button>
-              </Flexbox>
+            <Flexbox gap="md" flexDirection="row">
+              <Button
+                name="llm-provider"
+                value="offline"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
+                Offline
+              </Button>
+              <Button
+                name="llm-provider"
+                value="groq"
+                onClick={(data) => alert(JSON.stringify(data))}
+              >
+                Groq
+              </Button>
             </Flexbox>
           </WidgetWrapper>
         </Flexbox>

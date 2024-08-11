@@ -4,11 +4,16 @@ import { Flexbox, Icon, Loader } from '../..'
 
 import './button.sass'
 
+interface ButtonOnClickData {
+  name: string | undefined
+  value: string | number | undefined
+}
+
 export interface ButtonProps {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   children?: any
   // children?: React.ReactNode
-  type?: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit'
   iconName?: string
   iconPosition?: 'left' | 'right'
   secondary?: boolean
@@ -16,7 +21,9 @@ export interface ButtonProps {
   light?: boolean
   disabled?: boolean
   loading?: boolean
-  onClick?: () => void
+  name?: string
+  value?: string | number | undefined
+  onClick?: (data: ButtonOnClickData) => void
 }
 
 export function Button({
@@ -29,6 +36,8 @@ export function Button({
   light,
   disabled,
   loading,
+  name,
+  value,
   onClick
 }: ButtonProps) {
   let variant = 'primary'
@@ -44,13 +53,30 @@ export function Button({
   return (
     <button
       type={type}
+      name={name}
+      value={value}
       className={classNames('aurora-button', {
         'aurora-button--disabled': disabled,
         'aurora-button--loading': loading,
         [`aurora-button--${variant}`]: variant
       })}
       disabled={disabled || loading}
-      onClick={onClick}
+      onClick={(event) => {
+        if (type !== 'button') {
+          return
+        }
+
+        event.preventDefault()
+
+        const data = {
+          name,
+          value
+        }
+
+        if (onClick) {
+          onClick(data)
+        }
+      }}
     >
       {loading ? (
         <Loader />

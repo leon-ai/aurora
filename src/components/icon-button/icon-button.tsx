@@ -8,7 +8,7 @@ import './icon-button.sass'
 
 export interface IconButtonProps {
   name: string
-  type?: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit'
   iconType?: IconProps['type']
   size?: IconProps['size']
   shape?: IconProps['bgShape']
