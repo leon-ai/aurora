@@ -2,6 +2,7 @@ import { useState } from 'react'
 import classNames from 'clsx'
 
 import { Text, Icon } from '../..'
+import { generateKeyId } from '../../lib/utils'
 
 import './input.sass'
 
@@ -68,7 +69,10 @@ export function Input({
   }
 
   return (
-    <div className="aurora-input-container">
+    <div
+      className="aurora-input-container"
+      key={`aurora-input_${generateKeyId()}`}
+    >
       {multiline ? (
         <textarea
           name={name}

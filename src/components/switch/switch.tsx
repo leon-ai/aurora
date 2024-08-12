@@ -8,6 +8,8 @@ import {
   type SwitchProps as ArkSwitchProps
 } from '@ark-ui/react'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './switch.sass'
 
 interface SwitchOnChangeData {
@@ -36,6 +38,7 @@ export function Switch({
 
   return (
     <ArkSwitch
+      key={`aurora-switch_${generateKeyId()}`}
       className="aurora-switch"
       name={name}
       value={value}

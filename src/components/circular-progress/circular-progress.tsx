@@ -1,5 +1,7 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './circular-progress.sass'
 
 export interface CircularProgressProps {
@@ -19,6 +21,7 @@ export function CircularProgress({
 
   return (
     <div
+      key={`aurora-circular-progress_${generateKeyId()}`}
       className={classNames('aurora-circular-progress', {
         [`aurora-circular-progress--${size}`]: size
       })}

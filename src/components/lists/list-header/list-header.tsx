@@ -1,6 +1,7 @@
 import classNames from 'clsx'
 
 import { Text } from '../../..'
+import { generateKeyId } from '../../../lib/utils'
 
 export interface ListHeaderProps {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -12,6 +13,7 @@ export interface ListHeaderProps {
 export function ListHeader({ children, align }: ListHeaderProps) {
   return (
     <div
+      key={`aurora-list-header_${generateKeyId()}`}
       className={classNames('aurora-list-header', {
         [`aurora-list-header--${align}`]: align
       })}

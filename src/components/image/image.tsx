@@ -1,5 +1,7 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './image.sass'
 
 export interface ImageProps {
@@ -31,6 +33,7 @@ export function Image({
 }: ImageProps) {
   return (
     <div
+      key={`aurora-image_${generateKeyId()}`}
       className={classNames('aurora-image', {
         [`aurora-image--${shape}`]: shape,
         [`aurora-image--${borderColor}-border`]: borderColor,

@@ -3,6 +3,7 @@ import classNames from 'clsx'
 
 import { Icon, Loader } from '../..'
 import { type IconProps } from '../icon'
+import { generateKeyId } from '../../lib/utils'
 
 import './icon-button.sass'
 
@@ -55,6 +56,7 @@ export function IconButton({
 
   return (
     <button
+      key={`aurora-icon-button_${generateKeyId()}`}
       type={type}
       name={name}
       value={value}

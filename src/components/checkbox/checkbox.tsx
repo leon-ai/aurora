@@ -8,6 +8,7 @@ import {
 } from '@ark-ui/react'
 
 import { Icon } from '../icon'
+import { generateKeyId } from '../../lib/utils'
 
 import './checkbox.sass'
 
@@ -40,6 +41,7 @@ export function Checkbox({
 
   return (
     <ArkCheckbox
+      key={`aurora-checkbox_${generateKeyId()}`}
       className="aurora-checkbox"
       name={name}
       value={value}

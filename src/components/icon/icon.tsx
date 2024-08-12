@@ -1,6 +1,7 @@
 import classNames from 'clsx'
 
 import type { Color, Size, IconType } from '../../lib/types'
+import { generateKeyId } from '../../lib/utils'
 
 import './icon.sass'
 
@@ -47,6 +48,7 @@ export function Icon({
 
   return (
     <span
+      key={`aurora-icon_${generateKeyId()}`}
       className={classNames('aurora-icon', {
         [`aurora-icon--${size}`]: size,
         [`aurora-icon--${bgShape}`]: bgShape,

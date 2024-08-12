@@ -1,6 +1,7 @@
 import classNames from 'clsx'
 
 import { type Size } from '../../lib/types'
+import { generateKeyId } from '../../lib/utils'
 
 import './flexbox.sass'
 
@@ -44,6 +45,7 @@ export function Flexbox({
 }: FlexboxProps) {
   return (
     <div
+      key={`aurora-flexbox_${generateKeyId()}`}
       className={classNames('aurora-flexbox', {
         'aurora-flexbox--full-width': fullWidth,
         'aurora-flexbox--padding': padding,

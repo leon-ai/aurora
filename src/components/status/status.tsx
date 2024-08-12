@@ -2,6 +2,7 @@ import classNames from 'clsx'
 
 import type { IconType } from '../../lib/types'
 import { Icon, Flexbox } from '../..'
+import { generateKeyId } from '../../lib/utils'
 
 import './status.sass'
 
@@ -21,6 +22,7 @@ export function Status({
 }: StatusProps) {
   return (
     <div
+      key={`aurora-status_${generateKeyId()}`}
       className={classNames('aurora-status', {
         [`aurora-status--${color}`]: color
       })}

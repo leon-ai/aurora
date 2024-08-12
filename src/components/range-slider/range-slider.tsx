@@ -9,6 +9,8 @@ import {
   type SliderProps as ArkSliderProps
 } from '@ark-ui/react'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './range-slider.sass'
 
 interface RangeSliderOnChangeData {
@@ -54,6 +56,7 @@ export function RangeSlider({
 
   return (
     <div
+      key={`aurora-range-slider_${generateKeyId()}`}
       className="aurora-range-slider-container"
       style={{
         width,

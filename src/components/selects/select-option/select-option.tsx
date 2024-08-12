@@ -3,6 +3,8 @@ import {
   type SelectOptionProps as ArkSelectOptionProps
 } from '@ark-ui/react'
 
+import { generateKeyId } from '../../../lib/utils'
+
 export interface SelectOptionProps
   extends Pick<ArkSelectOptionProps, 'label' | 'value'> {
   disabled?: boolean
@@ -17,6 +19,7 @@ export function SelectOption({
 }: SelectOptionProps) {
   return (
     <ArkSelectOption
+      key={`aurora-select-option_${generateKeyId()}`}
       className="aurora-select-option"
       label={label}
       value={value}

@@ -2,6 +2,7 @@ import classNames from 'clsx'
 
 import { Text } from '../..'
 import { type Size } from '../../lib/types'
+import { generateKeyId } from '../../lib/utils'
 
 import './link.sass'
 
@@ -15,7 +16,12 @@ export interface LinkProps {
 
 export function Link({ href, children, fontSize }: LinkProps) {
   return (
-    <a className={classNames('aurora-link')} href={href} target="_blank">
+    <a
+      className={classNames('aurora-link')}
+      href={href}
+      target="_blank"
+      key={`aurora-link_${generateKeyId()}`}
+    >
       <Text fontSize={fontSize}>{children}</Text>
     </a>
   )

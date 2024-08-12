@@ -2,6 +2,8 @@ import classNames from 'clsx'
 
 import type { Size } from '../../lib/types'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './text.sass'
 
 /*const FONT_SIZES = {
@@ -33,6 +35,7 @@ export function Text({
 }: TextProps) {
   return (
     <p
+      key={`aurora-text_${generateKeyId()}`}
       className={classNames('aurora-text', {
         'aurora-text--secondary': secondary,
         'aurora-text--tertiary': tertiary,

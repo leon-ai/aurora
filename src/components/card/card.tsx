@@ -1,5 +1,7 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './card.sass'
 
 export interface CardProps {
@@ -12,6 +14,7 @@ export interface CardProps {
 export function Card({ children, fullWidth }: CardProps) {
   return (
     <div
+      key={`aurora-card_${generateKeyId()}`}
       className={classNames('aurora-card', {
         'aurora-card--full-width': fullWidth
       })}

@@ -1,3 +1,5 @@
+import { generateKeyId } from '../../lib/utils'
+
 import './form.sass'
 
 export interface FormProps {
@@ -37,7 +39,12 @@ export function Form({ children, onSubmit }: FormProps) {
   }
 
   return (
-    <form autoComplete="off" className="aurora-form" onSubmit={handleSubmit}>
+    <form
+      autoComplete="off"
+      className="aurora-form"
+      onSubmit={handleSubmit}
+      key={`aurora-form_${generateKeyId()}`}
+    >
       {children}
     </form>
   )

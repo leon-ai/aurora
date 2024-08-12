@@ -3,6 +3,8 @@ import {
   type RadioGroupProps as ArkRadioGroupProps
 } from '@ark-ui/react'
 
+import { generateKeyId } from '../../../lib/utils'
+
 import './radio-group.sass'
 
 interface RadioGroupOnChangeData {
@@ -29,6 +31,7 @@ export function RadioGroup({
 }: RadioGroupProps) {
   return (
     <ArkRadioGroup
+      key={`aurora-radio-group_${generateKeyId()}`}
       className="aurora-radio-group"
       name={name}
       defaultValue={defaultValue}

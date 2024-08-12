@@ -1,5 +1,6 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../../lib/utils'
 import { Icon } from '../../..'
 
 interface ListItemOnClickData {
@@ -32,6 +33,7 @@ export function ListItem({
 
   return (
     <li
+      key={`aurora-list-item_${generateKeyId()}`}
       data-aurora-name={name}
       value={value}
       className={classNames('aurora-list-item', {

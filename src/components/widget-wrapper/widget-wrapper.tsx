@@ -1,5 +1,7 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../lib/utils'
+
 import './widget-wrapper.sass'
 
 export interface WidgetWrapperProps {
@@ -22,6 +24,7 @@ export function WidgetWrapper({
 }: WidgetWrapperProps) {
   return (
     <div
+      key={`aurora-widget-wrapper_${generateKeyId()}`}
       className={classNames('aurora-widget-wrapper', {
         'aurora-widget-wrapper--no-padding': noPadding,
         'aurora-widget-wrapper--padding-top': paddingTop,

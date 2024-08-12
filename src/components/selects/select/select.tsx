@@ -9,6 +9,7 @@ import {
 import classNames from 'clsx'
 
 import { Flexbox, Icon } from '../../..'
+import { generateKeyId } from '../../../lib/utils'
 
 import './select.sass'
 
@@ -42,6 +43,7 @@ export function Select({
 }: SelectProps) {
   return (
     <ArkSelect
+      key={`aurora-select_${generateKeyId()}`}
       closeOnSelect
       selectedOption={selectedOption}
       defaultValue={defaultValue}

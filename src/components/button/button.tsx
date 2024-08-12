@@ -1,5 +1,6 @@
 import classNames from 'clsx'
 
+import { generateKeyId } from '../../lib/utils'
 import { Flexbox, Icon, Loader } from '../..'
 
 import './button.sass'
@@ -52,6 +53,7 @@ export function Button({
 
   return (
     <button
+      key={`aurora-button_${generateKeyId()}`}
       type={type}
       name={name}
       value={value}

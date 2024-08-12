@@ -1,3 +1,5 @@
+import { generateKeyId } from '../../../lib/utils'
+
 import './list.sass'
 
 export interface ListProps {
@@ -7,5 +9,9 @@ export interface ListProps {
 }
 
 export function List({ children }: ListProps) {
-  return <ul className="aurora-list">{children}</ul>
+  return (
+    <ul className="aurora-list" key={`aurora-list_${generateKeyId()}`}>
+      {children}
+    </ul>
+  )
 }
